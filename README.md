@@ -12,7 +12,7 @@ do arquivo.
 
 ## Monte sua tela
 
-Na aba **Monte sua tela** (`index.html#montar`) você monta uma página
+No botão com ícone de computador, no canto da barra (`index.html#montar`), você monta uma página
 escolhendo componentes, sem escrever HTML:
 
 - **Estrutura:** a árvore da página. Ao selecionar um item, só aparecem para
