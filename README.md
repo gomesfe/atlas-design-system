@@ -6,8 +6,9 @@ sem framework, sem build, sem depender do Backstage.
 **Tudo num arquivo só: `index.html`.** Ele é a documentação e também carrega o
 CSS do design system, embutido no bloco `<style id="atlas-css">`.
 
-Para reutilizar numa tela, copie o conteúdo desse bloco `<style>` para um
-`atlas.css` (ou cole direto no `<head>` da sua página).
+Para reutilizar numa tela, abra a página e use **Baixar atlas.css** (ou
+**Copiar CSS**) na seção "Como usar" — ou copie aquele bloco `<style>` direto
+do arquivo.
 
 ## Ver a documentação
 

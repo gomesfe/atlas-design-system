@@ -14,7 +14,8 @@
  * Atlas Design System — atlas.css
  * Superfícies escuras, verde lime, pílulas. Tema claro via data-theme="light".
  *
- * Uso: salve este bloco como atlas.css, inclua com <link rel="stylesheet" href="atlas.css"> e envolva a página em
+ * Uso: salve este bloco como atlas.css (ou use "Baixar atlas.css" na
+ * documentação), inclua com <link rel="stylesheet" href="atlas.css"> e envolva a página em
  *   <body class="atlas-root" data-theme="dark">
  * As variáveis vivem em .atlas-root; as classes têm prefixo atlas- para não
  * colidir com o CSS de uma página existente.
@@ -795,7 +796,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
   position: fixed; top: 12px; left: 50%; transform: translateX(-50%);
   z-index: 1100; width: calc(100% - 32px); max-width: 1440px; margin: 0;
 }
-.atlas-topNav--fixed ~ * { padding-top: 78px; }
+.atlas-topNav--fixed + * { padding-top: 78px; }
 .atlas-brandLogo { padding-right: 6px; }
 .atlas-brandMark {
   background: linear-gradient(145deg, #5cc45c 0%, var(--lime) 55%, #2f852f 100%);
@@ -1043,7 +1044,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
 /* ------------------------------------------------------------- responsivo --- */
 @media (max-width: 900px) {
   .atlas-topNav--fixed { top: 8px; width: calc(100% - 16px); }
-  .atlas-topNav--fixed ~ * { padding-top: 70px; }
+  .atlas-topNav--fixed + * { padding-top: 70px; }
   .atlas-brandName { display: none; }
   .atlas-pageTitle { font-size: 1.6rem; }
 }
@@ -1085,7 +1086,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
   .atlas-navPillsWrapper { order: 3; flex: 1 0 100%; }
   .atlas-navPills { width: 100%; }
   .atlas-navActionBtn { width: 36px; height: 36px; }
-  .atlas-topNav--fixed ~ * { padding-top: 124px; }
+  .atlas-topNav--fixed + * { padding-top: 124px; }
   .atlas-brandName { display: inline; }
 }
 @media (max-width: 440px) {
@@ -1102,7 +1103,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
     /* Estilos só da documentação (prefixo ds-). Nada aqui faz parte do DS. */
     body.atlas-root { background: var(--bg-app); }
     .ds-main { width: 100%; max-width: 1180px; margin: 0 auto; padding-left: 20px; padding-right: 20px; padding-bottom: 80px; }
-    /* padding-top fica com .atlas-topNav--fixed ~ *, que reserva o espaço da nav */
+    /* padding-top fica com .atlas-topNav--fixed + *, que reserva o espaço da nav */
     .ds-main .atlas-appContainer { gap: 56px; }
     .ds-section { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 100px; }
     .ds-sectionHead { display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid var(--border-color); padding-bottom: 14px; }
@@ -1205,7 +1206,8 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
             <h1 class="atlas-welcomeTitle">Atlas Design System</h1>
             <p class="atlas-welcomeSub">Os tokens, componentes e padrões do portal Atlas num único CSS. Superfícies escuras, verde lime, pílulas — e um tema claro de verdade.</p>
             <div class="ds-heroActions">
-              <a class="atlas-btnPill atlas-btnPillLime" href="#botoes">Ver componentes</a>
+              <a class="atlas-btnPill atlas-btnPillLime" href="#uso">Como usar</a>
+              <a class="atlas-btnPill" href="#botoes">Ver componentes</a>
             </div>
           </div>
           <div class="ds-stats">
@@ -1226,6 +1228,28 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
               <div class="atlas-metricBigValue">0</div>
             </div>
           </div>
+        </div>
+
+        <div class="atlas-sectionCard" id="uso">
+          <div class="atlas-sectionCardHeader">
+            <h3 class="atlas-sectionCardTitle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+              Como usar
+            </h3>
+          </div>
+          <p class="ds-note">Esta página é o design system inteiro: o CSS está embutido nela, no bloco <code>&lt;style id="atlas-css"&gt;</code>. Baixe ou copie o CSS abaixo, inclua na sua tela e marque a raiz da página com <code>atlas-root</code>. O tema vem de <code>data-theme</code> (<code>dark</code> ou <code>light</code>). As cores vivem em <code>.atlas-root</code>, então os componentes precisam estar dentro dele. Todas as classes começam com <code>atlas-</code> e não colidem com o CSS de uma página existente.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" class="atlas-btnPill atlas-btnPillLime" id="downloadCss">Baixar atlas.css</button>
+            <button type="button" class="atlas-btnPill" id="copyCss">Copiar CSS</button>
+          </div>
+          <pre class="atlas-codeBlock">&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"&gt;
+&lt;link rel="stylesheet" href="atlas.css"&gt;
+
+&lt;body class="atlas-root" data-theme="dark"&gt;
+  &lt;main class="atlas-appContainer"&gt;
+    &lt;section class="atlas-sectionCard"&gt;…&lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;</pre>
         </div>
       </section>
 
@@ -1651,6 +1675,17 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
       document.querySelectorAll('.ds-section').forEach(function (s) { io.observe(s); });
+
+      /* ---- baixar / copiar o CSS embutido ---- */
+      var cssText = document.getElementById('atlas-css').textContent.trim() + '\n';
+      document.getElementById('copyCss').addEventListener('click', function () { copy(cssText); });
+      document.getElementById('downloadCss').addEventListener('click', function () {
+        var url = URL.createObjectURL(new Blob([cssText], { type: 'text/css' }));
+        var a = document.createElement('a');
+        a.href = url; a.download = 'atlas.css';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      });
 
       /* ---- copiar ---- */
       var toast = document.getElementById('toast'), timer;
