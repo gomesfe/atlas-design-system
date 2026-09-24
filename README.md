@@ -10,6 +10,25 @@ Para reutilizar numa tela, abra a página e use **Baixar atlas.css** (ou
 **Copiar CSS**) na seção "Como usar" — ou copie aquele bloco `<style>` direto
 do arquivo.
 
+## Monte sua tela
+
+Na aba **Monte sua tela** (`index.html#montar`) você monta uma página
+escolhendo componentes, sem escrever HTML:
+
+- **Estrutura:** a árvore da página. Ao selecionar um item, só aparecem para
+  adicionar os componentes que o design system permite naquele lugar (dentro
+  de uma grade de métricas só entra métrica; cabeçalho de página, um por
+  página; e assim por diante). O que está bloqueado aparece com o motivo.
+- **Prévia:** a tela ao vivo; clicar num bloco seleciona.
+- **Propriedades:** textos e opções, também limitados às regras (um botão
+  principal por linha, uma métrica em destaque por grade, cores de badge da
+  paleta).
+- **Código da página:** o HTML completo, para copiar ou baixar como `.html`,
+  com o CSS embutido (arquivo autossuficiente) ou apontando para `atlas.css`.
+
+A prévia e o código saem da mesma função de render: o que se vê é o que se
+leva. O rascunho fica salvo no navegador.
+
 ## Ver a documentação
 
 Dá para abrir o `index.html` direto com dois cliques. Os botões de copiar

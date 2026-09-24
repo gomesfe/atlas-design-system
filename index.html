@@ -1097,6 +1097,20 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
   .atlas-quickActionsFlex { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .atlas-qaCardBtn { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
+
+/* ===== Utilitários de página ===== */
+/* Miolo de uma tela solta: margem lateral e respiro no fim. O padding-top
+   fica com .atlas-topNav--fixed + * quando a nav é fixa. */
+.atlas-pageMain { width: 100%; padding-left: 20px; padding-right: 20px; padding-bottom: 48px; }
+.atlas-pageMain:first-child,
+.atlas-topNav:not(.atlas-topNav--fixed) + .atlas-pageMain { padding-top: 20px; }
+/* Parágrafo corrido dentro de cartões. */
+.atlas-text { margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary); }
+/* Colunas de cartões; viram uma coluna em tela estreita. */
+.atlas-cols2, .atlas-cols3 { display: grid; gap: 16px; align-items: start; }
+.atlas-cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.atlas-cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .atlas-cols2, .atlas-cols3 { grid-template-columns: 1fr; } }
   </style>
 
   <style>
@@ -1159,6 +1173,50 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
       .ds-swatches { grid-template-columns: 1fr 1fr; }
       .ds-demo { padding: 16px; }
     }
+
+    /* ---- Monte sua tela ---- */
+    /* `display` das views venceria o atributo hidden sem isto. */
+    [hidden] { display: none !important; }
+    .ds-view { display: flex; flex-direction: column; gap: 56px; }
+    .ds-builderView { display: flex; flex-direction: column; gap: 20px; }
+    body.ds-building .ds-main { max-width: 1680px; }
+    .ds-builder { display: grid; grid-template-columns: 290px minmax(0, 1fr) 310px; gap: 16px; align-items: start; }
+    .ds-bPanel { position: sticky; top: 96px; max-height: calc(100vh - 116px); overflow-y: auto; gap: 14px; }
+    .ds-bLabel { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 4px 0 -4px; }
+    .ds-tree { display: flex; flex-direction: column; gap: 2px; }
+    .ds-treeItem { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; font: inherit; font-size: 0.82rem; color: var(--text-secondary); background: transparent; border: 1px solid transparent; border-radius: var(--atlas-radius-sm); padding: 6px 10px; cursor: pointer; min-width: 0; }
+    .ds-treeItem:hover { background: var(--bg-surface); color: var(--text-primary); }
+    .ds-treeItem.ds-sel { background: var(--lime-bg); border-color: var(--lime-border); color: var(--text-primary); }
+    .ds-treeName { font-weight: 700; white-space: nowrap; }
+    .ds-treeSum { color: var(--text-muted); font-size: 0.74rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    .ds-treeActions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .ds-treeActions .atlas-btnPill { padding: 5px 10px; }
+    .ds-palette { display: flex; flex-direction: column; gap: 6px; }
+    .ds-paletteItem { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; width: 100%; text-align: left; font: inherit; color: var(--text-primary); background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--atlas-radius-md); padding: 9px 12px; cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease; }
+    .ds-paletteItem:hover:not(:disabled) { border-color: var(--lime-border); background: var(--bg-card-hover); }
+    .ds-paletteItem:disabled { opacity: 0.5; cursor: not-allowed; }
+    .ds-paletteName { font-size: 0.84rem; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+    .ds-paletteName::before { content: "+"; color: var(--lime); font-weight: 800; }
+    .ds-paletteDesc { font-size: 0.74rem; color: var(--text-muted); line-height: 1.4; }
+    .ds-props { display: flex; flex-direction: column; gap: 14px; }
+    .ds-props .atlas-field { gap: 5px; }
+    .ds-boolRow { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ds-previewFrame { border: 1px solid var(--border-light); border-radius: var(--atlas-radius-lg); min-height: 640px; overflow: hidden; background: var(--bg-app); box-shadow: var(--shadow-md); }
+    .ds-previewFrame > .atlas-topNav { width: auto; margin: 12px 12px 0; }
+    .ds-previewFrame [data-nid] { cursor: pointer; }
+    .ds-previewFrame .ds-sel { outline: 2px solid var(--lime) !important; outline-offset: 3px; }
+    .ds-previewEmpty { margin: 20px; }
+    .ds-codeActions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .ds-codeActions label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; }
+    #bCodeOut { max-height: 520px; overflow: auto; margin: 0; }
+    @media (max-width: 1200px) {
+      .ds-builder { grid-template-columns: 260px minmax(0, 1fr); }
+      .ds-builder > .ds-bPanel:last-child { grid-column: 1 / -1; position: static; max-height: none; }
+    }
+    @media (max-width: 800px) {
+      .ds-builder { grid-template-columns: 1fr; }
+      .ds-bPanel { position: static; max-height: none; }
+    }
   </style>
 </head>
 <body class="atlas-root" data-theme="dark">
@@ -1174,6 +1232,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
       <div class="atlas-navPillsWrapper">
         <nav class="atlas-navPills" aria-label="Seções">
           <a class="atlas-navPill atlas-navPillActive" href="#inicio">Início</a>
+          <a class="atlas-navPill" href="#montar">Monte sua tela</a>
           <a class="atlas-navPill" href="#cores">Cores</a>
           <a class="atlas-navPill" href="#tipografia">Tipografia</a>
           <a class="atlas-navPill" href="#forma">Forma</a>
@@ -1197,6 +1256,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
 
   <main class="ds-main">
     <div class="atlas-appContainer">
+     <div id="docsView" class="ds-view">
 
       <!-- ============================ início ============================ -->
       <section class="ds-section" id="inicio">
@@ -1207,6 +1267,7 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
             <p class="atlas-welcomeSub">Os tokens, componentes e padrões do portal Atlas num único CSS. Superfícies escuras, verde lime, pílulas — e um tema claro de verdade.</p>
             <div class="ds-heroActions">
               <a class="atlas-btnPill atlas-btnPillLime" href="#uso">Como usar</a>
+              <a class="atlas-btnPill" href="#montar">Monte sua tela</a>
               <a class="atlas-btnPill" href="#botoes">Ver componentes</a>
             </div>
           </div>
@@ -1573,6 +1634,66 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
         </div>
       </section>
 
+     </div><!-- /docsView -->
+
+      <!-- ========================= monte sua tela ========================= -->
+      <div id="builderView" class="ds-builderView" hidden>
+        <div class="atlas-pageHeader">
+          <div class="atlas-pageTitleGroup">
+            <span class="atlas-pageEyebrow">Construtor</span>
+            <h1 class="atlas-pageTitle">Monte sua tela</h1>
+            <p class="atlas-pageSubtitle">Adicione componentes, preencha o conteúdo e leve o código da página pronta. Em cada lugar só aparecem os componentes permitidos ali — e as opções de cada um seguem as regras do design system.</p>
+          </div>
+          <div class="atlas-pageActions">
+            <select class="atlas-filterSelect" id="bTemplate" aria-label="Modelo">
+              <option value="">Começar de um modelo…</option>
+              <option value="dashboard">Painel</option>
+              <option value="form">Formulário</option>
+              <option value="catalog">Catálogo de templates</option>
+              <option value="blank">Em branco</option>
+            </select>
+            <a class="atlas-btnPill atlas-btnPillLime" href="#bCode" id="bGoCode">Ver código</a>
+          </div>
+        </div>
+
+        <div class="ds-builder">
+          <aside class="atlas-sectionCard ds-bPanel" aria-label="Estrutura">
+            <div class="atlas-sectionCardHeader"><h3 class="atlas-sectionCardTitle">Estrutura</h3></div>
+            <div class="ds-tree" id="bTree"></div>
+            <div class="ds-treeActions" id="bTreeActions">
+              <button type="button" class="atlas-btnPill" data-act="up" title="Mover para cima">↑ Subir</button>
+              <button type="button" class="atlas-btnPill" data-act="down" title="Mover para baixo">↓ Descer</button>
+              <button type="button" class="atlas-btnPill" data-act="dup">Duplicar</button>
+              <button type="button" class="atlas-btnPill" data-act="del">Remover</button>
+            </div>
+            <div id="bPalette" class="ds-palette"></div>
+          </aside>
+
+          <div class="atlas-root ds-previewFrame" id="bPreview" data-theme="dark" aria-label="Prévia"></div>
+
+          <aside class="atlas-sectionCard ds-bPanel" aria-label="Propriedades">
+            <div class="atlas-sectionCardHeader"><h3 class="atlas-sectionCardTitle" id="bPropsTitle">Propriedades</h3></div>
+            <div id="bProps" class="ds-props"></div>
+          </aside>
+        </div>
+
+        <section class="atlas-sectionCard" id="bCode">
+          <div class="atlas-sectionCardHeader">
+            <h3 class="atlas-sectionCardTitle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+              Código da página
+            </h3>
+            <div class="ds-codeActions">
+              <label><button type="button" class="atlas-switch atlas-switchOn" id="bEmbed" aria-pressed="true" aria-label="Embutir CSS"><span class="atlas-switchKnob"></span></button>Embutir o CSS</label>
+              <button type="button" class="atlas-btnPill" id="bCopy">Copiar</button>
+              <button type="button" class="atlas-btnPill atlas-btnPillLime" id="bDownload">Baixar .html</button>
+            </div>
+          </div>
+          <p class="ds-note" id="bCodeNote"></p>
+          <pre class="atlas-codeBlock" id="bCodeOut"></pre>
+        </section>
+      </div>
+
     </div>
   </main>
 
@@ -1628,8 +1749,12 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
             out.push('  '.repeat(indent) + tok.trim());
             if (/^<[^/!][^>]*[^/]>$/.test(tok) && !/^<(input|br|img|path|circle|rect)\b/.test(tok) && !/<\/[^>]+>$/.test(tok)) indent++;
           });
-        // junta "<tag>texto</tag>" curtos numa linha só
-        return out.join('\n').replace(/^(\s*)(<[^/][^>]*>)\n\s*([^<\n]+)\n\s*(<\/[^>]+>)/gm, '$1$2$3$4');
+        // junta "<tag>texto</tag>" curtos numa linha só, e "<tag></tag>" vazios
+        // também — num <textarea>, a quebra de linha viraria conteúdo e
+        // esconderia o placeholder.
+        return out.join('\n')
+          .replace(/^(\s*)(<[^/][^>]*>)\n\s*([^<\n]+)\n\s*(<\/[^>]+>)/gm, '$1$2$3$4')
+          .replace(/^(\s*)(<([a-z0-9]+)[^>]*>)\n\s*(<\/\3>)/gm, '$1$2$4');
       }
       document.querySelectorAll('.ds-demo').forEach(function (demo) {
         var src = format(demo.innerHTML.replace(/ data-group(="")?/g, ''));
@@ -1686,6 +1811,607 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
         document.body.appendChild(a); a.click(); a.remove();
         setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
       });
+
+      /* =================================================================
+         Monte sua tela
+         Um registro de componentes (TYPES) define, para cada um: o que pode
+         ir dentro dele, limites de quantidade, as propriedades editáveis e
+         como vira HTML. A prévia e o código exportado usam o MESMO render —
+         o que se vê é exatamente o que se leva.
+         ================================================================= */
+      var ICONS = {
+        link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+        sino: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/>',
+        nuvem: '<path d="M17.5 19a4.5 4.5 0 1 0-1.4-8.8A6 6 0 0 0 4.5 12 3.5 3.5 0 0 0 6 19z"/>',
+        tabela: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>',
+        escudo: '<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/>',
+        raio: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+        usuarios: '<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/>',
+        busca: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+        pasta: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+        chave: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3"/>',
+        cadeado: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/>',
+        grade: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+        codigo: '<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>'
+      };
+      var ICON_OPTIONS = [['', 'Nenhum'], ['link', 'Link'], ['sino', 'Sino'], ['nuvem', 'Nuvem'], ['tabela', 'Tabela'], ['escudo', 'Escudo'], ['raio', 'Raio'], ['usuarios', 'Pessoas'], ['pasta', 'Pasta'], ['codigo', 'Código'], ['grade', 'Grade'], ['chave', 'Chave'], ['busca', 'Lupa'], ['cadeado', 'Cadeado']];
+      function icon(name, size) {
+        var p = ICONS[name]; size = size || 18;
+        return p ? '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>' : '';
+      }
+      // Cor da ação rápida → classe do DS + ícone. Só estas sete existem no DS.
+      var QA = {
+        provision: ['Provisionar (verde)', 'nuvem'], search: ['Buscar (azul)', 'busca'],
+        resources: ['Recursos (roxo)', 'pasta'], request: ['Acesso (amarelo)', 'chave'],
+        breakglass: ['Emergência (vermelho)', 'cadeado'], governance: ['Governança (verde-água)', 'escudo'],
+        templates: ['Templates (azul)', 'grade']
+      };
+      var BADGE = [['lime', 'Verde — ok, produção'], ['info', 'Azul — informação, tipo'], ['warning', 'Amarelo — atenção'], ['purple', 'Roxo — experimental'], ['danger', 'Vermelho — erro, revogado']];
+      var ALERT = [['info', 'Informação'], ['success', 'Sucesso'], ['warning', 'Atenção'], ['danger', 'Perigo']];
+      var CAP = function (s) { return s.charAt(0).toUpperCase() + s.slice(1); };
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+      // Só links http(s), relativos, âncoras e e-mail; o resto vira "#".
+      function safeUrl(u) { u = String(u || '').trim(); return /^(https?:\/\/|\/|#|\.\/|mailto:)/i.test(u) ? u : '#'; }
+      function list(s) { return String(s || '').split(',').map(function (x) { return x.trim(); }).filter(Boolean); }
+      function lines(s) { return String(s || '').split(/\r?\n/).map(function (x) { return x.trim(); }).filter(Boolean); }
+
+      var TYPES = {
+        page: {
+          label: 'Página',
+          children: ['pageHeader', 'metricGrid', 'quickActions', 'sectionCard', 'columns', 'cardGrid', 'alert'],
+          defaults: { docTitle: 'Minha tela', theme: 'dark', nav: true, navFixed: true, brand: 'Atlas', env: 'dev', pills: 'Home, Catálogo, APIs, Docs', active: '0' },
+          props: [
+            { k: 'docTitle', l: 'Título da aba do navegador', t: 'text' },
+            { k: 'theme', l: 'Tema', t: 'select', o: [['dark', 'Escuro'], ['light', 'Claro']] },
+            { k: 'nav', l: 'Barra de navegação', t: 'bool' },
+            { k: 'navFixed', l: 'Nav fixa no topo', t: 'bool', show: function (p) { return p.nav; }, h: 'Fixa na página exportada; na prévia ela fica no fluxo.' },
+            { k: 'brand', l: 'Nome na nav', t: 'text', show: function (p) { return p.nav; } },
+            { k: 'env', l: 'Selo do ambiente', t: 'text', show: function (p) { return p.nav; }, h: 'Vazio esconde o selo.' },
+            { k: 'pills', l: 'Itens da nav', t: 'text', show: function (p) { return p.nav; }, h: 'Separados por vírgula.' },
+            { k: 'active', l: 'Item ativo', t: 'select', show: function (p) { return p.nav; },
+              o: function (p) { return list(p.pills).map(function (x, i) { return [String(i), x]; }); } }
+          ]
+        },
+        pageHeader: {
+          label: 'Cabeçalho da página', desc: 'Título, subtítulo e ação principal. Um por página.',
+          limit: { page: 1 }, sum: 'title',
+          defaults: { eyebrow: 'Seção', title: 'Título da página', subtitle: 'Uma frase dizendo para que serve esta tela.', action: '' },
+          props: [
+            { k: 'eyebrow', l: 'Sobretítulo', t: 'text', h: 'A linha verde em caixa alta acima do título.' },
+            { k: 'title', l: 'Título', t: 'text' },
+            { k: 'subtitle', l: 'Subtítulo', t: 'textarea' },
+            { k: 'action', l: 'Botão de ação', t: 'text', h: 'Vazio esconde o botão.' }
+          ],
+          render: function (p, k, a) {
+            return '<div class="atlas-pageHeader"' + a + '><div class="atlas-pageTitleGroup">' +
+              (p.eyebrow ? '<span class="atlas-pageEyebrow">' + esc(p.eyebrow) + '</span>' : '') +
+              '<h1 class="atlas-pageTitle">' + esc(p.title) + '</h1>' +
+              (p.subtitle ? '<p class="atlas-pageSubtitle">' + esc(p.subtitle) + '</p>' : '') + '</div>' +
+              (p.action ? '<div class="atlas-pageActions"><button type="button" class="atlas-btnPill atlas-btnPillLime">' + esc(p.action) + '</button></div>' : '') +
+              '</div>';
+          }
+        },
+        metricGrid: {
+          label: 'Grade de métricas', desc: 'Números em destaque, até 6.', children: ['metric'],
+          render: function (p, k, a) { return '<div class="atlas-topOverviewCardsGrid"' + a + '>' + k + '</div>'; }
+        },
+        metric: {
+          label: 'Métrica', desc: 'Um número com rótulo.', limit: { parent: 6 }, sum: 'title',
+          defaults: { title: 'Rótulo', value: '0', highlighted: false, icon: '' },
+          props: [
+            { k: 'title', l: 'Rótulo', t: 'text' },
+            { k: 'value', l: 'Valor', t: 'text' },
+            { k: 'icon', l: 'Ícone', t: 'select', o: ICON_OPTIONS },
+            { k: 'highlighted', l: 'Destaque (verde)', t: 'bool', h: 'Uma por grade — é o número que mais importa.',
+              lock: function (p, n, parent) { return !p.highlighted && parent.children.some(function (c) { return c !== n && c.props.highlighted; }) ? 'Já existe uma métrica em destaque nesta grade.' : ''; } }
+          ],
+          render: function (p, k, a) {
+            return '<div class="atlas-expandMetricCard' + (p.highlighted ? ' atlas-expandMetricCardHighlighted' : '') + '"' + a + '>' +
+              '<div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">' + esc(p.title) + '</span>' +
+              (p.icon ? '<span class="atlas-metricCardIcon">' + icon(p.icon, 17) + '</span>' : '') + '</div>' +
+              '<div class="atlas-metricBigValue">' + esc(p.value) + '</div></div>';
+          }
+        },
+        quickActions: {
+          label: 'Ações rápidas', desc: 'Atalhos com ícone colorido, até 8.', children: ['quickAction'],
+          render: function (p, k, a) { return '<div class="atlas-quickActionsViewport"' + a + '><div class="atlas-quickActionsFlex">' + k + '</div></div>'; }
+        },
+        quickAction: {
+          label: 'Ação rápida', desc: 'Atalho com ícone.', limit: { parent: 8 }, sum: 'label',
+          defaults: { label: 'Nova ação', color: 'provision', href: '#' },
+          props: [
+            { k: 'label', l: 'Texto', t: 'text' },
+            { k: 'color', l: 'Tipo', t: 'select', o: Object.keys(QA).map(function (c) { return [c, QA[c][0]]; }), h: 'A cor e o ícone vêm do tipo — são os sete do DS.' },
+            { k: 'href', l: 'Link', t: 'text' }
+          ],
+          render: function (p, k, a) {
+            var q = QA[p.color] || QA.provision;
+            return '<a class="atlas-qaCardBtn" href="' + esc(safeUrl(p.href)) + '"' + a + '><span class="atlas-qaIconCircle atlas-qa-' + esc(p.color) + '">' +
+              icon(q[1]) + '</span><span class="atlas-qaLabelText">' + esc(p.label) + '</span></a>';
+          }
+        },
+        sectionCard: {
+          label: 'Cartão de seção', desc: 'O bloco básico: título e conteúdo.', sum: 'title',
+          children: ['text', 'buttonRow', 'badgeRow', 'table', 'linkList', 'formGrid', 'tabs', 'alert', 'emptyState', 'metricGrid'],
+          defaults: { title: 'Título do cartão', icon: 'link', action: '' },
+          props: [
+            { k: 'title', l: 'Título', t: 'text' },
+            { k: 'icon', l: 'Ícone', t: 'select', o: ICON_OPTIONS },
+            { k: 'action', l: 'Botão no cabeçalho', t: 'text', h: 'Vazio esconde o botão.' }
+          ],
+          render: function (p, k, a) {
+            return '<section class="atlas-sectionCard"' + a + '><div class="atlas-sectionCardHeader"><h3 class="atlas-sectionCardTitle">' +
+              icon(p.icon) + esc(p.title) + '</h3>' +
+              (p.action ? '<button type="button" class="atlas-btnPill">' + esc(p.action) + '</button>' : '') + '</div>' + k + '</section>';
+          }
+        },
+        columns: {
+          label: 'Colunas', desc: 'Cartões lado a lado (2 ou 3).', children: ['sectionCard'],
+          defaults: { cols: '2' },
+          props: [{ k: 'cols', l: 'Colunas', t: 'select', o: [['2', '2 colunas'], ['3', '3 colunas']], h: 'Em tela estreita viram uma coluna.' }],
+          render: function (p, k, a) { return '<div class="atlas-cols' + (p.cols === '3' ? '3' : '2') + '"' + a + '>' + k + '</div>'; }
+        },
+        cardGrid: {
+          label: 'Grade de cartões', desc: 'Cartões de template ou de item, lado a lado.', children: ['featureCard'],
+          render: function (p, k, a) { return '<div class="atlas-cardGrid"' + a + '>' + k + '</div>'; }
+        },
+        featureCard: {
+          label: 'Cartão de item', desc: 'Badge, título, descrição e ação.', sum: 'title', limit: { parent: 12 },
+          defaults: { badge: 'resource', badgeVariant: 'info', title: 'Nome do item', desc: 'Descrição curta do que isto faz.', tags: 'aws, terraform', button: 'Choose' },
+          props: [
+            { k: 'badge', l: 'Badge', t: 'text', h: 'Vazio esconde.' },
+            { k: 'badgeVariant', l: 'Cor do badge', t: 'select', o: BADGE },
+            { k: 'title', l: 'Título', t: 'text' },
+            { k: 'desc', l: 'Descrição', t: 'textarea', h: 'Aparecem até 3 linhas.' },
+            { k: 'tags', l: 'Tags', t: 'text', h: 'Separadas por vírgula.' },
+            { k: 'button', l: 'Botão', t: 'text', h: 'Vazio esconde.' }
+          ],
+          render: function (p, k, a) {
+            var tags = list(p.tags).map(function (t) { return '<span class="atlas-tagChip">' + esc(t) + '</span>'; }).join('');
+            return '<article class="atlas-featureCard"' + a + '>' +
+              (p.badge ? '<div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badge' + CAP(p.badgeVariant) + '">' + esc(p.badge) + '</span></div>' : '') +
+              '<div class="atlas-featureCardTitle">' + esc(p.title) + '</div>' +
+              (p.desc ? '<div class="atlas-featureCardDesc">' + esc(p.desc) + '</div>' : '') +
+              (tags || p.button ? '<div class="atlas-featureCardFooter">' + tags +
+                (p.button ? '<button type="button" class="atlas-btnPill atlas-btnPillLime" style="margin-left:auto">' + esc(p.button) + '</button>' : '') + '</div>' : '') +
+              '</article>';
+          }
+        },
+        alert: {
+          label: 'Alerta', desc: 'Aviso de informação, sucesso, atenção ou perigo.', sum: 'title',
+          defaults: { variant: 'info', title: 'Título do aviso', text: 'Explique a situação em uma ou duas frases.' },
+          props: [
+            { k: 'variant', l: 'Tipo', t: 'select', o: ALERT },
+            { k: 'title', l: 'Título', t: 'text' },
+            { k: 'text', l: 'Texto', t: 'textarea' }
+          ],
+          render: function (p, k, a) {
+            return '<div class="atlas-alert atlas-alert' + CAP(p.variant) + '"' + a + '><div>' +
+              (p.title ? '<div class="atlas-alertTitle">' + esc(p.title) + '</div>' : '') + esc(p.text) + '</div></div>';
+          }
+        },
+        text: {
+          label: 'Texto', desc: 'Parágrafo corrido.', sum: 'text',
+          defaults: { text: 'Escreva aqui o conteúdo do cartão.' },
+          props: [{ k: 'text', l: 'Texto', t: 'textarea' }],
+          render: function (p, k, a) { return '<p class="atlas-text"' + a + '>' + esc(p.text) + '</p>'; }
+        },
+        buttonRow: {
+          label: 'Linha de botões', desc: 'Um botão principal e os demais neutros.', children: ['button'],
+          render: function (p, k, a) { return '<div class="atlas-filtersBar"' + a + '>' + k + '</div>'; }
+        },
+        button: {
+          label: 'Botão', desc: 'Ação.', sum: 'label', limit: { parent: 5 },
+          defaults: function (parent) {
+            var hasPrimary = parent.children.some(function (c) { return c.props.variant === 'primary'; });
+            return { label: hasPrimary ? 'Cancelar' : 'Salvar', variant: hasPrimary ? 'secondary' : 'primary' };
+          },
+          props: [
+            { k: 'label', l: 'Texto', t: 'text' },
+            { k: 'variant', l: 'Estilo', t: 'select', h: 'Um botão principal (verde) por linha.',
+              o: function (p, n, parent) {
+                var taken = parent.children.some(function (c) { return c !== n && c.props.variant === 'primary'; });
+                return [['primary', taken ? 'Principal — já existe um nesta linha' : 'Principal (verde)', taken], ['secondary', 'Neutro']];
+              } }
+          ],
+          render: function (p, k, a) {
+            return '<button type="button" class="atlas-btnPill' + (p.variant === 'primary' ? ' atlas-btnPillLime' : '') + '"' + a + '>' + esc(p.label) + '</button>';
+          }
+        },
+        badgeRow: {
+          label: 'Linha de badges', desc: 'Estados ou tipos.', children: ['badge'],
+          render: function (p, k, a) { return '<div class="atlas-filtersBar"' + a + '>' + k + '</div>'; }
+        },
+        badge: {
+          label: 'Badge', desc: 'Estado com cor.', sum: 'text', limit: { parent: 10 },
+          defaults: { text: 'production', variant: 'lime' },
+          props: [{ k: 'text', l: 'Texto', t: 'text' }, { k: 'variant', l: 'Cor', t: 'select', o: BADGE }],
+          render: function (p, k, a) { return '<span class="atlas-badgeTag atlas-badge' + CAP(p.variant) + '"' + a + '>' + esc(p.text) + '</span>'; }
+        },
+        table: {
+          label: 'Tabela', desc: 'Linhas e colunas.',
+          defaults: { columns: 'Nome, Dono, Tipo', rows: 'payments-api; payments; service\nfraud-score; antifraude; service' },
+          props: [
+            { k: 'columns', l: 'Colunas', t: 'text', h: 'Separadas por vírgula.' },
+            { k: 'rows', l: 'Linhas', t: 'textarea', h: 'Uma linha por registro; células separadas por ponto e vírgula.' }
+          ],
+          render: function (p, k, a) {
+            var cols = list(p.columns);
+            var body = lines(p.rows).map(function (r) {
+              var cells = r.split(';').map(function (c) { return c.trim(); });
+              return '<tr>' + cols.map(function (_, i) {
+                return '<td' + (i === 0 ? ' class="atlas-resourceCell"' : '') + '>' + esc(cells[i] || '') + '</td>';
+              }).join('') + '</tr>';
+            }).join('');
+            return '<div class="atlas-recentTableWrap"' + a + '><table class="atlas-recentTable"><thead><tr>' +
+              cols.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' + body + '</tbody></table></div>';
+          }
+        },
+        linkList: {
+          label: 'Lista de links', desc: 'Links com seta, um por linha.',
+          defaults: { items: 'Guia de Onboarding | #\nPadrões de Arquitetura | #' },
+          props: [{ k: 'items', l: 'Links', t: 'textarea', h: 'Um por linha: texto | endereço' }],
+          render: function (p, k, a) {
+            return '<div class="atlas-usefulLinksList"' + a + '>' + lines(p.items).map(function (l) {
+              var parts = l.split('|');
+              return '<a class="atlas-usefulLinkItem" href="' + esc(safeUrl(parts[1])) + '">' + esc(parts[0].trim()) + ' <span>↗</span></a>';
+            }).join('') + '</div>';
+          }
+        },
+        formGrid: {
+          label: 'Formulário', desc: 'Campos em duas colunas.', children: ['field'],
+          render: function (p, k, a) { return '<div class="atlas-formGrid"' + a + '>' + k + '</div>'; }
+        },
+        field: {
+          label: 'Campo', desc: 'Rótulo, controle e dica.', sum: 'label', limit: { parent: 12 },
+          defaults: { label: 'Nome', type: 'input', placeholder: '', options: 'Opção 1, Opção 2', hint: '' },
+          props: [
+            { k: 'label', l: 'Rótulo', t: 'text' },
+            { k: 'type', l: 'Tipo', t: 'select', o: [['input', 'Texto curto'], ['textarea', 'Texto longo'], ['select', 'Lista de opções']] },
+            { k: 'placeholder', l: 'Exemplo dentro do campo', t: 'text', show: function (p) { return p.type !== 'select'; } },
+            { k: 'options', l: 'Opções', t: 'text', h: 'Separadas por vírgula.', show: function (p) { return p.type === 'select'; } },
+            { k: 'hint', l: 'Dica abaixo', t: 'text' }
+          ],
+          render: function (p, k, a) {
+            var ctl = p.type === 'textarea'
+              ? '<textarea class="atlas-textarea" placeholder="' + esc(p.placeholder) + '"></textarea>'
+              : p.type === 'select'
+                ? '<select class="atlas-select">' + list(p.options).map(function (o) { return '<option>' + esc(o) + '</option>'; }).join('') + '</select>'
+                : '<input class="atlas-input" placeholder="' + esc(p.placeholder) + '">';
+            return '<div class="atlas-field"' + a + '><label class="atlas-fieldLabel">' + esc(p.label) + '</label>' + ctl +
+              (p.hint ? '<span class="atlas-fieldHint">' + esc(p.hint) + '</span>' : '') + '</div>';
+          }
+        },
+        tabs: {
+          label: 'Abas', desc: 'Troca de visão dentro do cartão.', sum: 'items',
+          defaults: { items: 'Visão geral, Detalhes, Histórico', active: '0' },
+          props: [
+            { k: 'items', l: 'Abas', t: 'text', h: 'Separadas por vírgula.' },
+            { k: 'active', l: 'Aba ativa', t: 'select', o: function (p) { return list(p.items).map(function (x, i) { return [String(i), x]; }); } }
+          ],
+          render: function (p, k, a) {
+            return '<div class="atlas-tabs"' + a + '>' + list(p.items).map(function (t, i) {
+              return '<button type="button" class="atlas-tabBtn' + (String(i) === String(p.active) ? ' atlas-tabBtnActive' : '') + '">' + esc(t) + '</button>';
+            }).join('') + '</div>';
+          }
+        },
+        emptyState: {
+          label: 'Estado vazio', desc: 'Quando ainda não há dados.', sum: 'text',
+          defaults: { text: 'Nada por aqui ainda.' },
+          props: [{ k: 'text', l: 'Texto', t: 'text' }],
+          render: function (p, k, a) { return '<div class="atlas-emptyState"' + a + '>' + esc(p.text) + '</div>'; }
+        }
+      };
+      // Limites de filhos que dependem do contêiner, não do filho.
+      TYPES.metricGrid.limitChildren = 6;
+
+      /* ---- modelo: árvore de nós { id, type, props, children } ---- */
+      var seq = 0;
+      function mk(type, props, children, parent) {
+        var t = TYPES[type];
+        var base = typeof t.defaults === 'function' ? t.defaults(parent || { children: [] }) : (t.defaults || {});
+        var n = { id: 'n' + (++seq), type: type, props: Object.assign({}, base, props || {}), children: [] };
+        (children || []).forEach(function (c) { n.children.push(c); });
+        return n;
+      }
+      var TEMPLATES = {
+        blank: function () { return mk('page'); },
+        dashboard: function () {
+          return mk('page', { docTitle: 'Painel do squad' }, [
+            mk('pageHeader', { eyebrow: 'Visão geral', title: 'Painel do squad', subtitle: 'Recursos, serviços e avisos do seu time em um só lugar.', action: 'Novo recurso' }),
+            mk('metricGrid', {}, [
+              mk('metric', { title: 'Aplicações', value: '12', icon: 'grade' }),
+              mk('metric', { title: 'APIs', value: '7', icon: 'codigo' }),
+              mk('metric', { title: 'Recursos provisionados', value: '48', icon: 'nuvem', highlighted: true })
+            ]),
+            mk('columns', { cols: '2' }, [
+              mk('sectionCard', { title: 'Avisos', icon: 'sino' }, [
+                mk('alert', { variant: 'warning', title: 'Janela de manutenção', text: 'Sábado, das 22h às 2h. Deploys ficam bloqueados.' }),
+                mk('badgeRow', {}, [mk('badge', { text: 'production', variant: 'lime' }), mk('badge', { text: '2 alertas', variant: 'warning' })])
+              ]),
+              mk('sectionCard', { title: 'Links úteis', icon: 'link' }, [mk('linkList')])
+            ]),
+            mk('sectionCard', { title: 'Recursos', icon: 'tabela', action: 'Ver todos' }, [
+              mk('table', { columns: 'Nome, Tipo, Ambiente, Dono', rows: 'bucket-relatorios; S3; prd; payments\nfila-eventos; SQS; hml; payments\ncache-sessoes; Valkey; prd; onboarding' })
+            ])
+          ]);
+        },
+        form: function () {
+          var row = mk('buttonRow');
+          row.children.push(mk('button', {}, [], row));
+          row.children.push(mk('button', {}, [], row));
+          return mk('page', { docTitle: 'Solicitar acesso' }, [
+            mk('pageHeader', { eyebrow: 'Acesso', title: 'Solicitar acesso', subtitle: 'Peça acesso temporário a uma conta AWS. A solicitação é auditada.' }),
+            mk('alert', { variant: 'info', title: 'Como funciona', text: 'O acesso é concedido por tempo limitado e expira sozinho.' }),
+            mk('sectionCard', { title: 'Dados da solicitação', icon: 'chave' }, [
+              mk('formGrid', {}, [
+                mk('field', { label: 'Conta AWS', type: 'select', options: 'payments-prd, payments-hml, onboarding-prd' }),
+                mk('field', { label: 'Duração', type: 'select', options: '1 hora, 4 horas, 8 horas', hint: 'Expira automaticamente.' }),
+                mk('field', { label: 'Ticket', placeholder: 'INC-1234' }),
+                mk('field', { label: 'Squad', placeholder: 'payments' })
+              ]),
+              mk('text', { text: 'Descreva o motivo com detalhe suficiente para a auditoria entender a urgência.' }),
+              row
+            ])
+          ]);
+        },
+        catalog: function () {
+          return mk('page', { docTitle: 'Templates', active: '0', pills: 'Create, Tarefas' }, [
+            mk('pageHeader', { eyebrow: 'Provisionamento', title: 'Create', subtitle: 'Escolha um template para provisionar recursos.', action: 'Ver tarefas' }),
+            mk('quickActions', {}, [
+              mk('quickAction', { label: 'Provisionar recurso', color: 'provision' }),
+              mk('quickAction', { label: 'Buscar no catálogo', color: 'search' }),
+              mk('quickAction', { label: 'Solicitar acesso', color: 'request' })
+            ]),
+            mk('cardGrid', {}, [
+              mk('featureCard', { title: 'Bucket S3', desc: 'Bucket de objetos, privado e versionado por padrão.', tags: 'aws, s3' }),
+              mk('featureCard', { title: 'Banco relacional RDS', desc: 'Instância RDS gerenciada, para Postgres ou MySQL.', tags: 'aws, rds' }),
+              mk('featureCard', { title: 'Fila SQS', desc: 'Fila com DLQ configurada.', tags: 'aws, sqs' })
+            ])
+          ]);
+        }
+      };
+
+      var STORE = 'atlas-ds-builder-v1';
+      var state = null;
+      try { state = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) { state = null; }
+      if (!state || !state.tree || state.tree.type !== 'page') state = { tree: TEMPLATES.dashboard(), sel: null };
+      (function reseq(n) { var v = parseInt(String(n.id).slice(1), 10); if (v > seq) seq = v; n.children.forEach(reseq); })(state.tree);
+      if (!state.sel) state.sel = state.tree.id;
+      function save() { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch (e) {} }
+
+      function find(id, n, parent) {
+        n = n || state.tree;
+        if (n.id === id) return { node: n, parent: parent || null, index: parent ? parent.children.indexOf(n) : -1 };
+        for (var i = 0; i < n.children.length; i++) { var r = find(id, n.children[i], n); if (r) return r; }
+        return null;
+      }
+      function count(type, n) { n = n || state.tree; return (n.type === type ? 1 : 0) + n.children.reduce(function (s, c) { return s + count(type, c); }, 0); }
+      // Motivo pelo qual `type` NÃO pode entrar em `container` — ou '' se pode.
+      function blocked(type, container) {
+        var t = TYPES[type], lim = t.limit || {};
+        if (lim.page && count(type) >= lim.page) return 'Só pode haver ' + lim.page + ' por página.';
+        if (lim.parent && container.children.filter(function (c) { return c.type === type; }).length >= lim.parent) return 'Máximo de ' + lim.parent + ' aqui.';
+        if (TYPES[container.type].limitChildren && container.children.length >= TYPES[container.type].limitChildren) return 'Máximo de ' + TYPES[container.type].limitChildren + ' aqui.';
+        return '';
+      }
+
+      /* ---- render: a mesma função para prévia e exportação ---- */
+      function renderNode(n, preview) {
+        var kids = n.children.map(function (c) { return renderNode(c, preview); }).join('');
+        var a = preview ? ' data-nid="' + n.id + '"' : '';
+        return TYPES[n.type].render(n.props, kids, a);
+      }
+      function renderBody(preview) {
+        var p = state.tree.props, nav = '';
+        if (p.nav) {
+          var pills = list(p.pills).map(function (x, i) {
+            return '<a class="atlas-navPill' + (String(i) === String(p.active) ? ' atlas-navPillActive' : '') + '" href="#">' + esc(x) + '</a>';
+          }).join('');
+          nav = '<header class="atlas-topNav' + (p.navFixed && !preview ? ' atlas-topNav--fixed' : '') + '"><div class="atlas-navLeft"><div class="atlas-brandLogo">' +
+            '<span class="atlas-brandMark">' + esc((p.brand || 'A').trim().charAt(0).toUpperCase()) + '</span>' +
+            '<span class="atlas-brandName">' + esc(p.brand) + '</span>' +
+            (p.env ? '<span class="atlas-badgeTag atlas-badgeInfo">' + esc(p.env) + '</span>' : '') +
+            '</div><div class="atlas-navPillsWrapper"><nav class="atlas-navPills">' + pills + '</nav></div></div></header>';
+        }
+        var kids = state.tree.children.map(function (c) { return renderNode(c, preview); }).join('');
+        return nav + '<main class="atlas-pageMain"><div class="atlas-appContainer">' + kids + '</div></main>';
+      }
+      var CSS = document.getElementById('atlas-css').textContent.trim();
+      var FONT = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap">';
+      function exportHtml(embed) {
+        var p = state.tree.props;
+        var body = format(renderBody(false)).split('\n').map(function (l) { return '  ' + l; }).join('\n');
+        return '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n' +
+          '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+          '  <title>' + esc(p.docTitle || 'Atlas') + '</title>\n  ' + FONT + '\n' +
+          (embed ? '  <style>\n' + CSS + '\n  </style>\n' : '  <link rel="stylesheet" href="atlas.css">\n') +
+          '</head>\n<body class="atlas-root" data-theme="' + (p.theme === 'light' ? 'light' : 'dark') + '">\n' + body + '\n</body>\n</html>\n';
+      }
+
+      /* ---- UI ---- */
+      var $ = function (id) { return document.getElementById(id); };
+      var embed = true;
+
+      function drawPreview() {
+        var pv = $('bPreview');
+        pv.setAttribute('data-theme', state.tree.props.theme === 'light' ? 'light' : 'dark');
+        pv.innerHTML = renderBody(true) + (state.tree.children.length ? '' :
+          '<div class="atlas-emptyState ds-previewEmpty">Página vazia. Use <b>Adicionar</b> no painel Estrutura.</div>');
+        var s = pv.querySelector('[data-nid="' + state.sel + '"]');
+        if (s) s.classList.add('ds-sel');
+      }
+      function summary(n) {
+        var k = TYPES[n.type].sum; var v = k ? String(n.props[k] || '') : '';
+        if (!v && n.children.length) v = n.children.length + ' ite' + (n.children.length > 1 ? 'ns' : 'm');
+        return v.split(/\r?\n/)[0];
+      }
+      function drawTree() {
+        var out = [];
+        (function walk(n, d) {
+          out.push('<button type="button" class="ds-treeItem' + (n.id === state.sel ? ' ds-sel' : '') + '" data-id="' + n.id + '" style="padding-left:' + (10 + d * 14) + 'px">' +
+            '<span class="ds-treeName">' + esc(TYPES[n.type].label) + '</span><span class="ds-treeSum">' + esc(summary(n)) + '</span></button>');
+          n.children.forEach(function (c) { walk(c, d + 1); });
+        })(state.tree, 0);
+        $('bTree').innerHTML = out.join('');
+        var f = find(state.sel), isPage = f.node === state.tree;
+        document.querySelectorAll('#bTreeActions button').forEach(function (b) {
+          var act = b.getAttribute('data-act');
+          b.disabled = isPage ||
+            (act === 'up' && f.index <= 0) ||
+            (act === 'down' && f.index >= f.parent.children.length - 1) ||
+            (act === 'dup' && !!blocked(f.node.type, f.parent));
+        });
+      }
+      function drawPalette() {
+        var f = find(state.sel), n = f.node, container, at, where;
+        if (TYPES[n.type].children) { container = n; at = n.children.length; where = 'dentro de “' + TYPES[n.type].label + '”'; }
+        else { container = f.parent; at = f.index + 1; where = 'depois de “' + TYPES[n.type].label + '”'; }
+        var html = '<div class="ds-bLabel">Adicionar ' + esc(where) + '</div>';
+        TYPES[container.type].children.forEach(function (type) {
+          var why = blocked(type, container);
+          html += '<button type="button" class="ds-paletteItem" data-add="' + type + '" data-at="' + at + '" data-into="' + container.id + '"' + (why ? ' disabled' : '') + '>' +
+            '<span class="ds-paletteName">' + esc(TYPES[type].label) + '</span><span class="ds-paletteDesc">' + esc(why || TYPES[type].desc || '') + '</span></button>';
+        });
+        html += '<p class="ds-note" style="font-size:0.76rem">Só aparecem os componentes que o design system permite neste lugar.</p>';
+        $('bPalette').innerHTML = html;
+      }
+      function drawProps() {
+        var f = find(state.sel), n = f.node, t = TYPES[n.type], box = $('bProps');
+        $('bPropsTitle').textContent = t.label;
+        box.innerHTML = '';
+        (t.props || []).forEach(function (pr) {
+          if (pr.show && !pr.show(n.props)) return;
+          var wrap = document.createElement('div');
+          wrap.className = 'atlas-field';
+          var id = 'bp-' + n.id + '-' + pr.k, ctl;
+          var lock = pr.lock ? pr.lock(n.props, n, f.parent) : '';
+          if (pr.t === 'bool') {
+            wrap.innerHTML = '<div class="ds-boolRow"><label class="atlas-fieldLabel" for="' + id + '">' + esc(pr.l) + '</label>' +
+              '<button type="button" id="' + id + '" class="atlas-switch' + (n.props[pr.k] ? ' atlas-switchOn' : '') + '" aria-pressed="' + !!n.props[pr.k] + '"' + (lock ? ' disabled style="opacity:.45;cursor:not-allowed"' : '') + '><span class="atlas-switchKnob"></span></button></div>';
+            wrap.querySelector('button').addEventListener('click', function () { set(n, pr.k, !n.props[pr.k], true); });
+          } else {
+            wrap.innerHTML = '<label class="atlas-fieldLabel" for="' + id + '">' + esc(pr.l) + '</label>';
+            if (pr.t === 'select') {
+              ctl = document.createElement('select'); ctl.className = 'atlas-select';
+              var opts = typeof pr.o === 'function' ? pr.o(n.props, n, f.parent) : pr.o;
+              opts.forEach(function (o) {
+                var op = document.createElement('option'); op.value = o[0]; op.textContent = o[1];
+                if (o[2]) op.disabled = true;
+                ctl.appendChild(op);
+              });
+              ctl.value = String(n.props[pr.k]);
+              ctl.addEventListener('change', function () { set(n, pr.k, ctl.value, true); });
+            } else {
+              ctl = document.createElement(pr.t === 'textarea' ? 'textarea' : 'input');
+              ctl.className = pr.t === 'textarea' ? 'atlas-textarea' : 'atlas-input';
+              ctl.value = n.props[pr.k] == null ? '' : n.props[pr.k];
+              // Texto não redesenha o painel (perderia o foco); só prévia e árvore.
+              ctl.addEventListener('input', function () { set(n, pr.k, ctl.value, false); });
+              // Mas campos que alimentam outro select (itens da nav, abas) redesenham ao sair.
+              ctl.addEventListener('change', function () { drawProps(); });
+            }
+            ctl.id = id;
+            wrap.appendChild(ctl);
+          }
+          var hint = lock || pr.h;
+          if (hint) { var h = document.createElement('span'); h.className = 'atlas-fieldHint'; h.textContent = hint; wrap.appendChild(h); }
+          box.appendChild(wrap);
+        });
+        if (!(t.props || []).length) {
+          box.innerHTML = '<p class="ds-note">' + esc(t.label) + ' não tem opções próprias — é um contêiner. Adicione itens dentro dele pelo painel Estrutura.</p>';
+        }
+      }
+      function drawCode() {
+        var html = exportHtml(embed);
+        var shown = embed ? html.replace(CSS, '    /* … atlas.css embutido — ' + CSS.split('\n').length + ' linhas. Vai completo ao copiar ou baixar. */') : html;
+        $('bCodeOut').textContent = shown;
+        $('bCodeNote').innerHTML = embed
+          ? 'Página autossuficiente: o CSS vai dentro do arquivo. Basta abrir o <code>.html</code>.'
+          : 'A página aponta para <code>atlas.css</code> — deixe o arquivo (use <b>Baixar atlas.css</b> no Início) na mesma pasta.';
+      }
+      function redraw(all) { drawPreview(); drawTree(); drawPalette(); drawCode(); if (all) drawProps(); save(); }
+      function set(n, k, v, form) { n.props[k] = v; redraw(form); }
+      function select(id) { state.sel = id; redraw(true); }
+
+      $('bTree').addEventListener('click', function (e) { var b = e.target.closest('[data-id]'); if (b) select(b.getAttribute('data-id')); });
+      $('bPreview').addEventListener('click', function (e) {
+        e.preventDefault();
+        var el = e.target.closest('[data-nid]');
+        select(el ? el.getAttribute('data-nid') : state.tree.id);
+      });
+      $('bPalette').addEventListener('click', function (e) {
+        var b = e.target.closest('[data-add]'); if (!b || b.disabled) return;
+        var into = find(b.getAttribute('data-into')).node;
+        var n = mk(b.getAttribute('data-add'), null, null, into);
+        // Contêiner novo já nasce com um filho, para não aparecer vazio.
+        var t = TYPES[n.type];
+        if (t.children && n.type !== 'page') n.children.push(mk(t.children[0], null, null, n));
+        into.children.splice(parseInt(b.getAttribute('data-at'), 10), 0, n);
+        select(n.id);
+      });
+      $('bTreeActions').addEventListener('click', function (e) {
+        var b = e.target.closest('[data-act]'); if (!b || b.disabled) return;
+        var f = find(state.sel), arr = f.parent.children, i = f.index;
+        switch (b.getAttribute('data-act')) {
+          case 'up': arr.splice(i - 1, 0, arr.splice(i, 1)[0]); break;
+          case 'down': arr.splice(i + 1, 0, arr.splice(i, 1)[0]); break;
+          case 'dup':
+            var copyNode = JSON.parse(JSON.stringify(f.node));
+            (function renum(n) { n.id = 'n' + (++seq); n.children.forEach(renum); })(copyNode);
+            // Duplicar não pode furar as regras: a cópia perde o destaque/principal.
+            if (copyNode.props.highlighted) copyNode.props.highlighted = false;
+            if (copyNode.type === 'button' && copyNode.props.variant === 'primary') copyNode.props.variant = 'secondary';
+            arr.splice(i + 1, 0, copyNode); state.sel = copyNode.id; break;
+          case 'del':
+            arr.splice(i, 1);
+            state.sel = (arr[Math.min(i, arr.length - 1)] || f.parent).id; break;
+        }
+        redraw(true);
+      });
+      $('bTemplate').addEventListener('change', function () {
+        var v = this.value; this.value = '';
+        if (!v) return;
+        if (state.tree.children.length && !confirm('Substituir a tela atual pelo modelo?')) return;
+        state.tree = TEMPLATES[v](); state.sel = state.tree.id; redraw(true);
+      });
+      $('bEmbed').addEventListener('click', function () {
+        // A troca visual do switch já é feita pelo handler geral de .atlas-switch.
+        embed = this.classList.contains('atlas-switchOn'); drawCode();
+      });
+      $('bCopy').addEventListener('click', function () { copy(exportHtml(embed)); });
+      $('bDownload').addEventListener('click', function () {
+        var name = (state.tree.props.docTitle || 'tela').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'tela';
+        var url = URL.createObjectURL(new Blob([exportHtml(embed)], { type: 'text/html' }));
+        var a = document.createElement('a'); a.href = url; a.download = name + '.html';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      });
+      $('bGoCode').addEventListener('click', function (e) { e.preventDefault(); $('bCode').scrollIntoView({ behavior: 'smooth' }); });
+
+      /* ---- rota: #montar abre o construtor; qualquer outra âncora, a doc ---- */
+      var drawn = false;
+      function route() {
+        var building = location.hash === '#montar';
+        $('builderView').hidden = !building;
+        $('docsView').hidden = building;
+        document.body.classList.toggle('ds-building', building);
+        if (building) {
+          links.forEach(function (l) { l.classList.toggle('atlas-navPillActive', l.getAttribute('href') === '#montar'); });
+          if (!drawn) { redraw(true); drawn = true; }
+          window.scrollTo(0, 0);
+        } else if (location.hash) {
+          var target = document.querySelector(location.hash);
+          if (target) target.scrollIntoView();
+        }
+      }
+      window.addEventListener('hashchange', route);
+      route();
 
       /* ---- copiar ---- */
       var toast = document.getElementById('toast'), timer;
