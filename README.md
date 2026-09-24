@@ -3,15 +3,17 @@
 O visual do portal Atlas num único CSS, para reutilizar em qualquer tela HTML —
 sem framework, sem build, sem depender do Backstage.
 
-```
-dist/atlas.css     o design system: tokens + componentes (≈1.100 linhas, zero dependências)
-dist/tokens.json   os mesmos tokens em JSON, para Figma, e-mail, gráficos
-index.html         a documentação: cada componente ao vivo, com o código ao lado
-```
+**Tudo num arquivo só: `index.html`.** Ele é a documentação e também carrega o
+CSS do design system, embutido no bloco `<style id="atlas-css">`.
+
+Para reutilizar numa tela, abra a página e use **Baixar atlas.css** (ou
+**Copiar CSS**) na seção "Como usar" — ou copie aquele bloco `<style>` direto
+do arquivo.
 
 ## Ver a documentação
 
-Abra o `index.html` num servidor local (o botão de copiar precisa de `http://`):
+Dá para abrir o `index.html` direto com dois cliques. Os botões de copiar
+funcionam melhor servindo por `http://`:
 
 ```bash
 python -m http.server 4200
@@ -54,7 +56,7 @@ sem quebrar layout.
 
 ## Origem
 
-`dist/atlas.css` junta os dois arquivos de tema do portal Atlas
+O CSS embutido junta os dois arquivos de tema do portal Atlas
 (`atlas-ds.css`, o port do redesign, e `atlas-refinements.css`, o acabamento).
 Uma diferença deliberada: no portal a barra de navegação é sempre fixa; aqui
 ela fica no fluxo por padrão e vira fixa com o modificador
