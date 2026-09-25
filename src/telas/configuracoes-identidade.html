@@ -1,0 +1,43 @@
+<!--
+title: Configurações — identidade
+order: 17
+kind: estado
+description: Aba Identidade: usuário, nome, grupos e versão do portal.
+-->
+{{nav:settings}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Preferências</span>
+        <h1 class="atlas-pageTitle">Configurações</h1>
+        <p class="atlas-pageSubtitle">Aparência, identidade e recursos experimentais desta sessão.</p>
+      </div>
+      <div class="atlas-pageActions">
+        <span class="atlas-badgeTag atlas-badgeInfo">local</span>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-sectionCardHeader">
+        <div class="atlas-tabs" role="tablist"><button type="button" role="tab" class="atlas-tabBtn" aria-selected="false">Aparência</button><button type="button" role="tab" class="atlas-tabBtn atlas-tabBtnActive" aria-selected="true">Identidade</button><button type="button" role="tab" class="atlas-tabBtn" aria-selected="false">Feature flags</button></div>
+      </div>
+      <div class="atlas-settingRow">
+        <div class="atlas-settingInfo"><span class="atlas-settingName">Usuário</span><span class="atlas-settingDesc">Como o portal identifica você. É esta referência que o RBAC usa para encontrar suas permissões.</span></div>
+        <span class="atlas-costMono">user:default/gomesfe</span>
+      </div>
+      <div class="atlas-settingRow">
+        <div class="atlas-settingInfo"><span class="atlas-settingName">Nome de exibição</span><span class="atlas-settingDesc">Vem do perfil do provedor de login.</span></div>
+        <span class="atlas-costMono">gomesfe</span>
+      </div>
+      <div class="atlas-settingRow">
+        <div class="atlas-settingInfo"><span class="atlas-settingName">Grupos</span><span class="atlas-settingDesc">Os grupos do catálogo aos quais você pertence. Sem grupo, o RBAC cai no padrão fechado.</span></div>
+        <span class="atlas-costMono">group:default/plataforma</span>
+      </div>
+      <div class="atlas-settingRow">
+        <div class="atlas-settingInfo"><span class="atlas-settingName">Versão do portal</span><span class="atlas-settingDesc">Identidade desta instalação, lida do app-config.</span></div>
+        <span class="atlas-costMono">0.1.0 · local</span>
+      </div>
+    </section>
+  </div>
+</main>

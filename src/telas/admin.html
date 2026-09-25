@@ -1,0 +1,61 @@
+<!--
+title: Administração
+order: 14
+kind: tela
+description: Painel administrativo: usuários com chaves, uso do portal e uso da API.
+-->
+{{nav:admin}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Administração</span>
+        <h1 class="atlas-pageTitle">Administração</h1>
+        <p class="atlas-pageSubtitle">Uso do portal, atividade das chaves de API e usuários com credenciais ativas.</p>
+      </div>
+      <div class="atlas-pageActions">
+        <span class="atlas-badgeTag atlas-badgePurple">acesso admin</span>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-sectionCardHeader">
+        <h3 class="atlas-sectionCardTitle">{{i:escudo}} Painel administrativo</h3>
+        <div class="atlas-tabs" role="tablist"><button type="button" role="tab" class="atlas-tabBtn atlas-tabBtnActive" aria-selected="true">Usuários com chaves</button><button type="button" role="tab" class="atlas-tabBtn" aria-selected="false">Uso do portal</button><button type="button" role="tab" class="atlas-tabBtn" aria-selected="false">Uso da API</button></div>
+      </div>
+      <div class="atlas-recentTableWrap">
+        <table class="atlas-recentTable">
+          <thead>
+            <tr><th>Usuário</th><th style="text-align:right">Chaves ativas</th><th style="text-align:right">Total emitido</th><th>Último uso</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="atlas-resourceCell">user:default/gomesfe</span></td>
+              <td style="text-align:right">3</td>
+              <td style="text-align:right">4</td>
+              <td>25/09/2026 09:12</td>
+            </tr>
+            <tr>
+              <td><span class="atlas-resourceCell">user:default/ana.souza</span></td>
+              <td style="text-align:right">2</td>
+              <td style="text-align:right">2</td>
+              <td>24/09/2026 17:05</td>
+            </tr>
+            <tr>
+              <td><span class="atlas-resourceCell">user:default/rafael.lima</span></td>
+              <td style="text-align:right">1</td>
+              <td style="text-align:right">3</td>
+              <td>19/09/2026 10:48</td>
+            </tr>
+            <tr>
+              <td><span class="atlas-resourceCell">user:default/joana.prado</span></td>
+              <td style="text-align:right">0</td>
+              <td style="text-align:right">1</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,54 @@
+<!--
+title: Trilhas
+order: 7
+description: Trilhas de aprendizado com busca e filtros por dificuldade e tag.
+-->
+{{nav:learning}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Aprendizado</span>
+        <h1 class="atlas-pageTitle">Trilhas de aprendizado</h1>
+        <p class="atlas-pageSubtitle">Trilhas guiadas para dominar o Atlas e as práticas de engenharia da casa.</p>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-filtersBar">
+        <div class="atlas-searchFieldWrap">
+          <input class="atlas-filterInput" placeholder="Buscar trilha…" aria-label="Buscar trilha">
+        </div>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Dificuldade</span>
+          <select class="atlas-filterSelect"><option>Todas</option><option>Iniciante</option><option>Intermediário</option><option>Avançado</option></select>
+        </label>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Tag</span>
+          <select class="atlas-filterSelect"><option>Todas</option><option>Onboarding</option><option>Provisionamento</option><option>AWS</option><option>Segurança</option><option>Observabilidade</option><option>APIs</option></select>
+        </label>
+      </div>
+
+      <div class="atlas-cardGrid">
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">Iniciante</span></div>
+          <div class="atlas-featureCardTitle">Onboarding de desenvolvedor</div>
+          <div class="atlas-featureCardDesc">Do zero ao primeiro serviço: acesso, catálogo e documentação no portal.</div>
+          <div class="atlas-featureCardFooter"><span class="atlas-paginationInfo" style="display:inline-flex;align-items:center;gap:4px">{{i:camadas:13}} 4 etapas</span><span class="atlas-paginationInfo">Onboarding</span><a class="atlas-templateLink" href="trilha-detalhe.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeInfo">Intermediário</span></div>
+          <div class="atlas-featureCardTitle">Provisionamento com o scaffolder</div>
+          <div class="atlas-featureCardDesc">Crie serviços e recursos usando templates e as convenções de IaC da casa.</div>
+          <div class="atlas-featureCardFooter"><span class="atlas-paginationInfo" style="display:inline-flex;align-items:center;gap:4px">{{i:camadas:13}} 4 etapas</span><span class="atlas-paginationInfo">Provisionamento · AWS</span><a class="atlas-templateLink" href="trilha-detalhe.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgePurple">Avançado</span></div>
+          <div class="atlas-featureCardTitle">Permissões, chaves e break glass</div>
+          <div class="atlas-featureCardDesc">Como o RBAC decide, como emitir credenciais e como pedir acesso emergencial.</div>
+          <div class="atlas-featureCardFooter"><span class="atlas-paginationInfo" style="display:inline-flex;align-items:center;gap:4px">{{i:camadas:13}} 3 etapas</span><span class="atlas-paginationInfo">Segurança</span><a class="atlas-templateLink" href="trilha-detalhe.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>

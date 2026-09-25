@@ -1,0 +1,56 @@
+<!--
+title: Buscar
+order: 15
+kind: tela
+description: Busca global no catálogo e na documentação, com filtro por tipo.
+-->
+{{nav:search}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Busca global</span>
+        <h1 class="atlas-pageTitle">Buscar</h1>
+        <p class="atlas-pageSubtitle">Encontre serviços, APIs e documentação em todo o portal.</p>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-searchFieldWrap" style="width:100%">
+        <input class="atlas-filterInput" style="width:100%" value="pagamentos" placeholder="Buscar no Atlas…" aria-label="Buscar no Atlas">
+      </div>
+      <div class="atlas-tabs" role="tablist"><button type="button" role="tab" class="atlas-tabBtn atlas-tabBtnActive" aria-selected="true">Tudo</button><button type="button" role="tab" class="atlas-tabBtn" aria-selected="false">Catálogo</button><button type="button" role="tab" class="atlas-tabBtn" aria-selected="false">Docs</button></div>
+      <div class="atlas-usefulLinksList">
+        <span class="atlas-paginationInfo">4 resultado(s)</span>
+          <a class="atlas-usefulLinkItem" href="catalogo.html" style="align-items:flex-start">
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="display:flex;align-items:center;gap:8px">payments-api <span class="atlas-badgeTag atlas-badgeLime">software-catalog</span></span>
+              <span class="atlas-homeUpdateMeta" style="font-weight:400">API de cobrança e liquidação de pagamentos.</span>
+            </span>
+            {{i:seta:16}}
+          </a>
+          <a class="atlas-usefulLinkItem" href="catalogo.html" style="align-items:flex-start">
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="display:flex;align-items:center;gap:8px">payments-api <span class="atlas-badgeTag atlas-badgeLime">software-catalog</span></span>
+              <span class="atlas-homeUpdateMeta" style="font-weight:400">Cobranças, estornos e liquidação. (API · openapi)</span>
+            </span>
+            {{i:seta:16}}
+          </a>
+          <a class="atlas-usefulLinkItem" href="catalogo.html" style="align-items:flex-start">
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="display:flex;align-items:center;gap:8px">pagamentos <span class="atlas-badgeTag atlas-badgeLime">software-catalog</span></span>
+              <span class="atlas-homeUpdateMeta" style="font-weight:400">Sistema de pagamentos: checkout, cobrança e razão contábil.</span>
+            </span>
+            {{i:seta:16}}
+          </a>
+          <a class="atlas-usefulLinkItem" href="catalogo.html" style="align-items:flex-start">
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="display:flex;align-items:center;gap:8px">Runbook — payments-api <span class="atlas-badgeTag atlas-badgeInfo">techdocs</span></span>
+              <span class="atlas-homeUpdateMeta" style="font-weight:400">O que fazer quando a fila de liquidação para: diagnóstico, reprocessamento e comunicação.</span>
+            </span>
+            {{i:seta:16}}
+          </a>
+      </div>
+    </section>
+  </div>
+</main>

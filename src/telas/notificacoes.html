@@ -1,0 +1,97 @@
+<!--
+title: Notificações
+order: 18
+kind: tela
+description: Caixa de notificações com filtros de visão, período, ordem, severidade e tópico.
+-->
+{{nav:notifications}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Caixa de entrada</span>
+        <h1 class="atlas-pageTitle">Notificações</h1>
+        <p class="atlas-pageSubtitle">Avisos do portal sobre seus recursos, chaves e templates.</p>
+      </div>
+      <div class="atlas-pageActions">
+        <button type="button" class="atlas-btnPill">Marcar todas como lidas</button>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-filtersBar atlas-filtersBarWrap">
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Visão</span>
+          <select class="atlas-filterSelect"><option>Não lidas</option><option>Lidas</option><option>Todas</option></select>
+        </label>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Enviadas</span>
+          <select class="atlas-filterSelect"><option>Qualquer data</option><option>Últimas 24 horas</option><option>Última semana</option></select>
+        </label>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Ordenar</span>
+          <select class="atlas-filterSelect"><option>Mais recentes</option><option>Mais antigas</option></select>
+        </label>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Severidade mínima</span>
+          <select class="atlas-filterSelect"><option>Baixa</option><option>Normal</option><option>Alta</option><option>Crítica</option></select>
+        </label>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Tópico</span>
+          <select class="atlas-filterSelect"><option>Todos</option><option>API Keys</option><option>Scaffolder</option><option>Templates</option><option>Catálogo</option></select>
+        </label>
+        <div class="atlas-searchFieldWrap" style="margin-left:auto">
+          <input class="atlas-filterInput" placeholder="Filtrar notificações" aria-label="Filtrar notificações">
+        </div>
+      </div>
+
+      <div class="atlas-homeScrollableList" style="max-height:none">
+        <div class="atlas-homeUpdateItem" style="align-items:flex-start;gap:12px">
+          <span class="atlas-groupIconDot atlas-dot-amber" style="margin-top:6px"></span>
+          <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+            <span class="atlas-homeUpdateText" style="font-weight:700">Chave expirando em 3 dias</span>
+            <span class="atlas-homeUpdateMeta" style="font-weight:400;line-height:1.5">A chave “pipeline de deploy do checkout” expira em 12/10. Emita outra antes para o deploy não parar.</span>
+            <span class="atlas-paginationInfo">API Keys · há 2 horas</span>
+          </span>
+          <span class="atlas-badgeTag atlas-badgeWarning">alta</span>
+        </div>
+        <div class="atlas-homeUpdateItem" style="align-items:flex-start;gap:12px">
+          <span class="atlas-groupIconDot atlas-dot-green" style="margin-top:6px"></span>
+          <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+            <span class="atlas-homeUpdateText" style="font-weight:700">Recurso provisionado</span>
+            <span class="atlas-homeUpdateMeta" style="font-weight:400;line-height:1.5">Bucket S3 bucket-comprovantes criado pelo template Bucket S3. O PR de infraestrutura foi aberto.</span>
+            <span class="atlas-paginationInfo">Scaffolder · hoje, 09:14</span>
+          </span>
+          <span class="atlas-badgeTag atlas-badgeLime">normal</span>
+        </div>
+        <div class="atlas-homeUpdateItem" style="align-items:flex-start;gap:12px">
+          <span class="atlas-groupIconDot atlas-dot-blue" style="margin-top:6px"></span>
+          <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+            <span class="atlas-homeUpdateText" style="font-weight:700">Novo template disponível</span>
+            <span class="atlas-homeUpdateMeta" style="font-weight:400;line-height:1.5">Template Redis v1.0.0 disponível em Create, na categoria Armazenamento.</span>
+            <span class="atlas-paginationInfo">Templates · ontem</span>
+          </span>
+          <span class="atlas-badgeTag atlas-badgeInfo">baixa</span>
+        </div>
+        <div class="atlas-homeUpdateItem" style="align-items:flex-start;gap:12px;opacity:.6">
+          <span class="atlas-groupIconDot atlas-dot-purple" style="margin-top:6px"></span>
+          <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+            <span class="atlas-homeUpdateText" style="font-weight:700">Você entrou no grupo Plataforma</span>
+            <span class="atlas-homeUpdateMeta" style="font-weight:400;line-height:1.5">Agora você vê e gerencia os recursos do grupo plataforma.</span>
+            <span class="atlas-paginationInfo">Catálogo · 22/09</span>
+          </span>
+          <span class="atlas-badgeTag atlas-badgeInfo">baixa</span>
+        </div>
+      </div>
+
+      <div class="atlas-pagination">
+        <span class="atlas-paginationInfo">1–4 de 4</span>
+        <div class="atlas-paginationBtns">
+          <button type="button" class="atlas-pageBtn" disabled>‹</button>
+          <span class="atlas-pageBtn atlas-pageBtnActive">1</span>
+          <button type="button" class="atlas-pageBtn" disabled>›</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

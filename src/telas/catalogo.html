@@ -1,0 +1,128 @@
+<!--
+title: Catálogo
+order: 2
+description: Componentes, sistemas e recursos em tabela, com busca e filtros por dono e tag.
+-->
+{{nav:catalog}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Descoberta</span>
+        <h1 class="atlas-pageTitle">Catálogo</h1>
+        <p class="atlas-pageSubtitle">Componentes, sistemas e recursos registrados no portal.</p>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-filtersBar">
+        <div class="atlas-searchFieldWrap">
+          <input class="atlas-filterInput" placeholder="Buscar por nome, descrição ou tag" aria-label="Buscar">
+        </div>
+        <span class="atlas-paginationInfo" style="margin-left:auto">9 item(ns)</span>
+      </div>
+
+      <div class="atlas-filtersBar atlas-filtersBarWrap">
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Dono</span>
+          <select class="atlas-filterSelect"><option>Todos</option><option>antifraude</option><option>onboarding</option><option>pagamentos</option><option>plataforma</option></select>
+        </label>
+        <label class="atlas-labeledSelect">
+          <span class="atlas-labeledSelectLabel">Tag</span>
+          <select class="atlas-filterSelect"><option>Todas</option><option>aws</option><option>backstage</option><option>java</option><option>kyc</option><option>ml</option><option>node</option><option>pix</option><option>python</option><option>react</option><option>s3</option></select>
+        </label>
+      </div>
+
+      <div class="atlas-recentTableWrap">
+        <table class="atlas-recentTable">
+          <thead>
+            <tr><th>Nome</th><th>Descrição</th><th>Dono</th><th>Tipo</th><th>Ciclo de vida</th><th>Tags</th><th style="text-align:right">Ações</th></tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td><span class="atlas-resourceCell">payments-api</span></td>
+                <td><span class="atlas-cellMuted">API de cobrança e liquidação de pagamentos.</span></td>
+                <td>pagamentos</td>
+                <td>service</td>
+                <td><span class="atlas-badgeTag atlas-badgeLime">production</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">java</span><span class="atlas-tagChip">pix</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar" style="color:var(--warning)">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">checkout-web</span></td>
+                <td><span class="atlas-cellMuted">Checkout web das contas digitais.</span></td>
+                <td>pagamentos</td>
+                <td>website</td>
+                <td><span class="atlas-badgeTag atlas-badgeLime">production</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">react</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">ledger-legacy</span></td>
+                <td><span class="atlas-cellMuted">Razão contábil antigo, em migração para o ledger-service.</span></td>
+                <td>pagamentos</td>
+                <td>service</td>
+                <td><span class="atlas-badgeTag atlas-badgeDanger">deprecated</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">java</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">fraud-score</span></td>
+                <td><span class="atlas-cellMuted">Modelo de score antifraude em tempo real.</span></td>
+                <td>antifraude</td>
+                <td>service</td>
+                <td><span class="atlas-badgeTag atlas-badgePurple">experimental</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">python</span><span class="atlas-tagChip">ml</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">onboarding-web</span></td>
+                <td><span class="atlas-cellMuted">Fluxo de abertura de conta.</span></td>
+                <td>onboarding</td>
+                <td>website</td>
+                <td><span class="atlas-badgeTag atlas-badgeLime">production</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">react</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">kyc-worker</span></td>
+                <td><span class="atlas-cellMuted">Validação de documentos e biometria.</span></td>
+                <td>onboarding</td>
+                <td>service</td>
+                <td><span class="atlas-badgeTag atlas-badgeLime">production</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">node</span><span class="atlas-tagChip">kyc</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">atlas-portal</span></td>
+                <td><span class="atlas-cellMuted">Este portal: catálogo, templates e governança.</span></td>
+                <td>plataforma</td>
+                <td>website</td>
+                <td><span class="atlas-badgeTag atlas-badgeLime">production</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">backstage</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar" style="color:var(--warning)">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">pagamentos</span></td>
+                <td><span class="atlas-cellMuted">Sistema de pagamentos.</span></td>
+                <td>pagamentos</td>
+                <td>system</td>
+                <td>—</td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+              <tr>
+                <td><span class="atlas-resourceCell">bucket-comprovantes</span></td>
+                <td><span class="atlas-cellMuted">Bucket S3 de comprovantes de pagamento.</span></td>
+                <td>pagamentos</td>
+                <td>s3</td>
+                <td><span class="atlas-badgeTag atlas-badgeLime">production</span></td>
+                <td><span style="display:flex;gap:4px;flex-wrap:wrap"><span class="atlas-tagChip">aws</span><span class="atlas-tagChip">s3</span></span></td>
+                <td style="text-align:right"><span class="atlas-tableActionGroup" style="justify-content:flex-end"><button type="button" class="atlas-actionBtnLink" title="Favoritar">{{i:estrela:14}}</button><button type="button" class="atlas-actionBtnLink" title="Abrir">{{i:externo:14}}</button></span></td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>

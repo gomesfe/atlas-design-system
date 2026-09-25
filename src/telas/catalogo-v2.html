@@ -1,0 +1,83 @@
+<!--
+title: Catálogo V2
+order: 3
+description: O catálogo em galeria de cartões, filtrado por tipo de entidade.
+-->
+{{nav:catalog-v2}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Descoberta</span>
+        <h1 class="atlas-pageTitle">Catálogo</h1>
+        <p class="atlas-pageSubtitle">Todos os componentes, recursos e APIs registrados, em cartões.</p>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-filtersBar">
+        <button type="button" class="atlas-groupViewBtn atlas-groupViewBtnActive">Todos</button><button type="button" class="atlas-groupViewBtn">Component</button><button type="button" class="atlas-groupViewBtn">Resource</button><button type="button" class="atlas-groupViewBtn">API</button><button type="button" class="atlas-groupViewBtn">System</button>
+        <div class="atlas-searchFieldWrap" style="margin-left:auto">
+          <input class="atlas-filterInput" placeholder="Buscar por nome, descrição ou tag" aria-label="Buscar">
+        </div>
+      </div>
+
+      <div class="atlas-cardGrid">
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">payments-api</div>
+          <div class="atlas-featureCardDesc">API de cobrança e liquidação de pagamentos.</div>
+          <div class="atlas-featureCardFooter"><span>service</span><span>pagamentos</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">checkout-web</div>
+          <div class="atlas-featureCardDesc">Checkout web das contas digitais.</div>
+          <div class="atlas-featureCardFooter"><span>website</span><span>pagamentos</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgePurple">experimental</span></div>
+          <div class="atlas-featureCardTitle">fraud-score</div>
+          <div class="atlas-featureCardDesc">Modelo de score antifraude em tempo real.</div>
+          <div class="atlas-featureCardFooter"><span>service</span><span>antifraude</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">onboarding-web</div>
+          <div class="atlas-featureCardDesc">Fluxo de abertura de conta.</div>
+          <div class="atlas-featureCardFooter"><span>website</span><span>onboarding</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">kyc-worker</div>
+          <div class="atlas-featureCardDesc">Validação de documentos e biometria.</div>
+          <div class="atlas-featureCardFooter"><span>service</span><span>onboarding</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeDanger">deprecated</span></div>
+          <div class="atlas-featureCardTitle">ledger-legacy</div>
+          <div class="atlas-featureCardDesc">Razão contábil antigo, em migração para o ledger-service.</div>
+          <div class="atlas-featureCardFooter"><span>service</span><span>pagamentos</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">accounts-api</div>
+          <div class="atlas-featureCardDesc">Contas, titulares e limites.</div>
+          <div class="atlas-featureCardFooter"><span>openapi</span><span>onboarding</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">bucket-comprovantes</div>
+          <div class="atlas-featureCardDesc">Bucket S3 de comprovantes de pagamento.</div>
+          <div class="atlas-featureCardFooter"><span>s3</span><span>pagamentos</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+        <article class="atlas-featureCard">
+          <div class="atlas-featureCardHead"><span class="atlas-badgeTag atlas-badgeLime">production</span></div>
+          <div class="atlas-featureCardTitle">atlas-portal</div>
+          <div class="atlas-featureCardDesc">Este portal: catálogo, templates e governança.</div>
+          <div class="atlas-featureCardFooter"><span>website</span><span>plataforma</span><a class="atlas-templateLink" href="catalogo.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:4px">Abrir {{i:seta:13}}</a></div>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>

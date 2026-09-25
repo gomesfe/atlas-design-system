@@ -1,0 +1,64 @@
+<!--
+title: API Keys
+order: 11
+kind: tela
+description: Chaves de API do usuário: prefixo, status, validade e último uso.
+-->
+{{nav:api-keys}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Credenciais</span>
+        <h1 class="atlas-pageTitle">API Keys</h1>
+        <p class="atlas-pageSubtitle">Crie e gerencie chaves de API para integrações e automações do seu squad.</p>
+      </div>
+      <div class="atlas-pageActions">
+        <button type="button" class="atlas-groupViewBtn" style="display:inline-flex;align-items:center;gap:6px">{{i:olho:16}} Mostrar revogadas</button>
+        <button type="button" class="atlas-btnPill atlas-btnPillLime" style="display:inline-flex;align-items:center;gap:6px">{{i:mais:16}} Nova chave</button>
+      </div>
+    </div>
+
+    <section class="atlas-tableContainerCard">
+      <div class="atlas-recentTableWrap">
+        <table class="atlas-recentTable">
+          <thead>
+            <tr><th>Nome</th><th>Chave</th><th>Status</th><th>Dono</th><th>Criada em</th><th>Expira em</th><th>Último uso</th><th style="text-align:right">Ações</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="atlas-resourceCell">pipeline de deploy do checkout</span></td>
+              <td><span class="atlas-costMono">atlas_3f9a1c2e…</span></td>
+              <td><span class="atlas-badgeTag atlas-badgeLime">ativa</span></td>
+              <td>user:default/gomesfe</td>
+              <td>12/09/2026 14:02</td>
+              <td>12/10/2026 14:02</td>
+              <td>24/09/2026 18:40</td>
+              <td style="text-align:right"><button type="button" class="atlas-actionBtnLink" style="color:var(--danger)">Revoke</button></td>
+            </tr>
+            <tr>
+              <td><span class="atlas-resourceCell">sync do catálogo (GitHub Actions)</span></td>
+              <td><span class="atlas-costMono">atlas_a81d0b44…</span></td>
+              <td><span class="atlas-badgeTag atlas-badgeLime">ativa</span></td>
+              <td>user:default/gomesfe</td>
+              <td>01/08/2026 09:15</td>
+              <td>nunca</td>
+              <td>25/09/2026 09:12</td>
+              <td style="text-align:right"><button type="button" class="atlas-actionBtnLink" style="color:var(--danger)">Revoke</button></td>
+            </tr>
+            <tr>
+              <td><span class="atlas-resourceCell">relatório de custos AWS</span></td>
+              <td><span class="atlas-costMono">atlas_c27e9f10…</span></td>
+              <td><span class="atlas-badgeTag atlas-badgeLime">ativa</span></td>
+              <td>user:default/gomesfe</td>
+              <td>20/09/2026 11:30</td>
+              <td>19/12/2026 11:30</td>
+              <td>—</td>
+              <td style="text-align:right"><button type="button" class="atlas-actionBtnLink" style="color:var(--danger)">Revoke</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>

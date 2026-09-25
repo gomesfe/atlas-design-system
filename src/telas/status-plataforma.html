@@ -1,0 +1,129 @@
+<!--
+title: Status da Plataforma
+order: 19
+kind: tela
+description: Saúde dos serviços do portal, disponibilidade em 30 dias e histórico de incidentes.
+-->
+{{nav:status}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Operação</span>
+        <h1 class="atlas-pageTitle">Status da Plataforma</h1>
+        <p class="atlas-pageSubtitle">Saúde dos serviços do portal Atlas, atualizada a cada minuto.</p>
+      </div>
+      <div class="atlas-pageActions">
+        <span class="atlas-badgeTag atlas-badgeInfo">team-plataforma</span>
+      </div>
+    </div>
+
+    <div class="atlas-alert atlas-alertWarning">
+      {{i:alerta}}
+      <div>
+        <div class="atlas-alertTitle">Desempenho degradado no TechDocs</div>
+        Publicações novas de documentação estão demorando até 15 minutos. Leitura normal. Os demais serviços estão operacionais.
+      </div>
+    </div>
+
+    <div class="atlas-topOverviewCardsGrid">
+      <div class="atlas-expandMetricCard atlas-expandMetricCardHighlighted">
+        <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Serviços operacionais</span><span class="atlas-metricCardIcon">{{i:servidor:17}}</span></div>
+        <div class="atlas-metricBigValue">6/7</div>
+      </div>
+      <div class="atlas-expandMetricCard">
+        <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Disponibilidade (30 dias)</span><span class="atlas-metricCardIcon">{{i:pulso:17}}</span></div>
+        <div class="atlas-metricBigValue">99,8%</div>
+      </div>
+      <div class="atlas-expandMetricCard">
+        <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Incidentes no mês</span><span class="atlas-metricCardIcon">{{i:alerta:17}}</span></div>
+        <div class="atlas-metricBigValue">2</div>
+      </div>
+    </div>
+
+    <div class="atlas-cols2">
+      <section class="atlas-sectionCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:servidor}} Serviços</h3>
+          <span class="atlas-paginationInfo">disponibilidade 30 dias</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusGreen"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">Catálogo</span><span class="atlas-serviceMeta">catalog · leitura e ingestão de entidades</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">99,98%</span>
+            <span class="atlas-badgeTag atlas-badgeLime">operacional</span>
+          </div>
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusGreen"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">Scaffolder</span><span class="atlas-serviceMeta">scaffolder · execução de templates</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">99,95%</span>
+            <span class="atlas-badgeTag atlas-badgeLime">operacional</span>
+          </div>
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusAmber"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">TechDocs</span><span class="atlas-serviceMeta">techdocs · build e leitura de docs</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">98,70%</span>
+            <span class="atlas-badgeTag atlas-badgeWarning">degradado</span>
+          </div>
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusGreen"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">Busca</span><span class="atlas-serviceMeta">search · índice de catálogo e docs</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">99,99%</span>
+            <span class="atlas-badgeTag atlas-badgeLime">operacional</span>
+          </div>
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusGreen"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">Login GitHub</span><span class="atlas-serviceMeta">auth · provedor OAuth</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">100%</span>
+            <span class="atlas-badgeTag atlas-badgeLime">operacional</span>
+          </div>
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusGreen"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">API Keys</span><span class="atlas-serviceMeta">api-keys · emissão e validação</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">99,97%</span>
+            <span class="atlas-badgeTag atlas-badgeLime">operacional</span>
+          </div>
+          <div class="atlas-serviceRow" style="cursor:default">
+            <span class="atlas-serviceStatusDot atlas-statusGreen"></span>
+            <span class="atlas-serviceInfo"><span class="atlas-serviceName">Banco de dados</span><span class="atlas-serviceMeta">postgres · armazenamento do portal</span></span>
+            <span class="atlas-costMono" style="font-size:.78rem">100%</span>
+            <span class="atlas-badgeTag atlas-badgeLime">operacional</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="atlas-sectionCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:historico}} Incidentes recentes</h3>
+        </div>
+        <div class="atlas-infoList">
+          <div class="atlas-infoItem">
+            <span class="atlas-statusAmber" style="display:inline-flex;margin-top:2px">{{i:alerta}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Build de TechDocs lento</div>
+              <div class="atlas-infoItemDesc">Em andamento desde 10:20. Os docs abrem, mas publicações novas demoram até 15 min.</div>
+              <div class="atlas-paginationInfo" style="margin-top:4px">25/09 · 10:20</div>
+            </div>
+          </div>
+          <div class="atlas-infoItem">
+            <span class="atlas-statusGreen" style="display:inline-flex;margin-top:2px">{{i:concluido}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Falha na ingestão do catálogo</div>
+              <div class="atlas-infoItemDesc">Resolvido. Token do GitHub expirado; renovado e ingestão reprocessada.</div>
+              <div class="atlas-paginationInfo" style="margin-top:4px">18/09 · 14:05 — 14:48</div>
+            </div>
+          </div>
+          <div class="atlas-infoItem">
+            <span class="atlas-statusGreen" style="display:inline-flex;margin-top:2px">{{i:concluido}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Manutenção programada</div>
+              <div class="atlas-infoItemDesc">Atualização do Backstage para a versão 1.43. Sem indisponibilidade.</div>
+              <div class="atlas-paginationInfo" style="margin-top:4px">10/08 · 02:00 — 03:10</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

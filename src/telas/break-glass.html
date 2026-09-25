@@ -1,0 +1,91 @@
+<!--
+title: Break Glass
+order: 10
+kind: tela
+description: Solicitação de acesso emergencial temporário e auditado a contas AWS.
+-->
+{{nav:break-glass}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+    <div class="atlas-pageHeader">
+      <div class="atlas-pageTitleGroup">
+        <span class="atlas-pageEyebrow">Acesso emergencial</span>
+        <h1 class="atlas-pageTitle">Break Glass</h1>
+        <p class="atlas-pageSubtitle">Solicite acesso privilegiado temporário e auditado a contas AWS em situações de incidente.</p>
+      </div>
+    </div>
+
+    <div class="atlas-alert atlas-alertWarning">
+      {{i:alerta}}
+      <div>
+        <div class="atlas-alertTitle">Uso restrito e auditado</div>
+        Toda solicitação é registrada, notifica os responsáveis do squad e expira automaticamente. Utilize apenas durante incidentes.
+      </div>
+    </div>
+
+    <div class="atlas-breakGlassLayout">
+      <section class="atlas-tableContainerCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:cadeado}} Nova solicitação</h3>
+        </div>
+
+        <div class="atlas-formGrid">
+          <div class="atlas-field">
+            <label class="atlas-fieldLabel" for="perfil">Perfil de acesso</label>
+            <select id="perfil" class="atlas-select"><option>ReadOnlyAccess</option><option>PowerUserAccess</option><option>DatabaseAdmin</option><option>NetworkAdmin</option></select>
+            <span class="atlas-fieldHint">Define o conjunto de permissões concedidas.</span>
+          </div>
+          <div class="atlas-field">
+            <label class="atlas-fieldLabel" for="conta">ID da conta AWS</label>
+            <input id="conta" class="atlas-input" inputmode="numeric" placeholder="123456789012">
+            <span class="atlas-fieldHint">Os 12 dígitos da conta onde o acesso será concedido.</span>
+          </div>
+        </div>
+
+        <div class="atlas-field">
+          <label class="atlas-fieldLabel" for="motivo">Justificativa</label>
+          <textarea id="motivo" class="atlas-textarea" placeholder="INC-4821 — fila de liquidação parada; preciso reiniciar o consumer."></textarea>
+          <span class="atlas-fieldHint">Número do incidente e o que precisa ser feito. Vai para a auditoria.</span>
+        </div>
+
+        <button type="button" class="atlas-btnPill atlas-btnPillLime" style="align-self:flex-start">Solicitar acesso</button>
+      </section>
+
+      <section class="atlas-tableContainerCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:info}} Como funciona</h3>
+        </div>
+        <div class="atlas-infoList">
+          <div class="atlas-infoItem">
+            <span style="color:var(--lime);margin-top:2px;display:inline-flex">{{i:ampulheta}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Tempo de execução</div>
+              <div class="atlas-infoItemDesc">O provisionamento do acesso leva em média 2 a 3 minutos após a solicitação.</div>
+            </div>
+          </div>
+          <div class="atlas-infoItem">
+            <span style="color:var(--lime);margin-top:2px;display:inline-flex">{{i:relogio}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Tempo de liberação</div>
+              <div class="atlas-infoItemDesc">O acesso é concedido por tempo limitado e expira automaticamente ao fim do período.</div>
+            </div>
+          </div>
+          <div class="atlas-infoItem">
+            <span style="color:var(--lime);margin-top:2px;display:inline-flex">{{i:historico}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Auditoria</div>
+              <div class="atlas-infoItemDesc">Toda solicitação é registrada e auditada, notificando os responsáveis do squad.</div>
+            </div>
+          </div>
+          <div class="atlas-infoItem">
+            <span style="color:var(--lime);margin-top:2px;display:inline-flex">{{i:selo}}</span>
+            <div>
+              <div class="atlas-infoItemTitle">Como funciona</div>
+              <div class="atlas-infoItemDesc">Concede uma role temporária na conta AWS informada, seguindo o princípio do menor privilégio.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>

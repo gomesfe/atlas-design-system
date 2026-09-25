@@ -1,0 +1,186 @@
+<!--
+title: Home
+order: 1
+description: Boas-vindas, métricas do escopo, ações rápidas, atualizações, serviços, links, onboarding e ferramentas.
+-->
+{{nav:home}}
+<main class="atlas-pageMain">
+  <div class="atlas-appContainer">
+
+    <!-- Escopo do serviço -->
+    <div class="atlas-groupViewShell">
+      <div class="atlas-groupViewSelector">
+        <span class="atlas-groupViewLabel">Escopo do serviço</span>
+        <button type="button" class="atlas-groupViewBtn atlas-groupViewBtnActive">Todos</button>
+        <button type="button" class="atlas-groupViewBtn">Pagamentos</button>
+        <button type="button" class="atlas-groupViewBtn">Onboarding</button>
+        <button type="button" class="atlas-groupViewBtn">Antifraude</button>
+      </div>
+      <p class="atlas-groupViewDescription">Filtre métricas, recursos e atualizações pelo serviço selecionado.</p>
+    </div>
+
+    <!-- Hero: boas-vindas + métricas -->
+    <section class="atlas-heroOverviewLayout">
+      <div class="atlas-welcomeCard">
+        <span class="atlas-welcomeEyebrow">Portal do Desenvolvedor</span>
+        <h2 class="atlas-welcomeTitle">Bem-vindo ao Atlas</h2>
+        <p class="atlas-welcomeSub">Provisione, descubra e governe recursos em um só lugar.</p>
+      </div>
+
+      <div class="atlas-topOverviewCardsGrid">
+        <div class="atlas-expandMetricCard">
+          <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Serviço Núclea</span><span class="atlas-metricCardIcon">{{i:predio:17}}</span></div>
+          <div class="atlas-metricBigValue">Todos</div>
+        </div>
+        <div class="atlas-expandMetricCard">
+          <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Squads no escopo</span><span class="atlas-metricCardIcon">{{i:usuarios:17}}</span></div>
+          <div class="atlas-metricBigValue">4</div>
+        </div>
+        <div class="atlas-expandMetricCard">
+          <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Aplicações</span><span class="atlas-metricCardIcon">{{i:apps:17}}</span></div>
+          <div class="atlas-metricBigValue">7</div>
+        </div>
+        <div class="atlas-expandMetricCard">
+          <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Recursos provisionados</span><span class="atlas-metricCardIcon">{{i:nuvem:17}}</span></div>
+          <div class="atlas-metricBigValue">23</div>
+        </div>
+        <div class="atlas-expandMetricCard">
+          <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">APIs</span><span class="atlas-metricCardIcon">{{i:codigo:17}}</span></div>
+          <div class="atlas-metricBigValue">4</div>
+        </div>
+        <div class="atlas-expandMetricCard atlas-expandMetricCardHighlighted">
+          <div class="atlas-metricCardHead"><span class="atlas-metricCardTitle">Sistemas</span><span class="atlas-metricCardIcon">{{i:rede:17}}</span></div>
+          <div class="atlas-metricBigValue">4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ações rápidas -->
+    <section class="atlas-sectionCard">
+      <div class="atlas-sectionCardHeader">
+        <h3 class="atlas-sectionCardTitle">{{i:raio}} Ações rápidas</h3>
+      </div>
+      <div class="atlas-quickActionsCarousel">
+        <div class="atlas-quickActionsViewport">
+          <div class="atlas-quickActionsFlex">
+            <a class="atlas-qaCardBtn" href="create.html"><span class="atlas-qaIconCircle atlas-qa-provision">{{i:nuvem}}</span><span class="atlas-qaLabelText">Provisionar Recurso</span></a>
+            <a class="atlas-qaCardBtn" href="buscar.html"><span class="atlas-qaIconCircle atlas-qa-search">{{i:busca}}</span><span class="atlas-qaLabelText">Buscar no Catálogo</span></a>
+            <a class="atlas-qaCardBtn" href="catalogo.html"><span class="atlas-qaIconCircle atlas-qa-resources">{{i:pasta}}</span><span class="atlas-qaLabelText">Meus Recursos</span></a>
+            <a class="atlas-qaCardBtn" href="admin.html"><span class="atlas-qaIconCircle atlas-qa-request">{{i:chave}}</span><span class="atlas-qaLabelText">Solicitar Acesso</span></a>
+            <a class="atlas-qaCardBtn" href="break-glass.html"><span class="atlas-qaIconCircle atlas-qa-breakglass">{{i:cadeado}}</span><span class="atlas-qaLabelText">Break Glass</span></a>
+            <a class="atlas-qaCardBtn" href="create.html"><span class="atlas-qaIconCircle atlas-qa-templates">{{i:template}}</span><span class="atlas-qaLabelText">Templates</span></a>
+            <a class="atlas-qaCardBtn" href="admin.html"><span class="atlas-qaIconCircle atlas-qa-governance">{{i:escudo}}</span><span class="atlas-qaLabelText">Governança</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="atlas-homeThreeCardsGrid">
+      <!-- Últimas atualizações gerais -->
+      <section class="atlas-sectionCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:sino}} Últimas atualizações gerais</h3>
+        </div>
+        <div class="atlas-homeScrollableList">
+          <div class="atlas-homeUpdateItem" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span class="atlas-homeUpdateText">Template Redis v1.0.0 disponível.</span>
+            <a class="atlas-templateLink" href="create.html" style="display:inline-flex;align-items:center;gap:4px;font-size:.78rem">Como usar {{i:seta:13}}</a>
+          </div>
+          <div class="atlas-homeUpdateItem" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span class="atlas-homeUpdateText">Template SQS v2.3.0 atualizado com suporte a DLQ.</span>
+            <a class="atlas-templateLink" href="create.html" style="display:inline-flex;align-items:center;gap:4px;font-size:.78rem">Referência {{i:seta:13}}</a>
+          </div>
+          <div class="atlas-homeUpdateItem" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span class="atlas-homeUpdateText">Novo padrão de tags obrigatórias em recursos AWS.</span>
+            <a class="atlas-templateLink" href="create.html" style="display:inline-flex;align-items:center;gap:4px;font-size:.78rem">Ver template {{i:seta:13}}</a>
+          </div>
+          <div class="atlas-homeUpdateItem" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span class="atlas-homeUpdateText">Manutenção programada do Atlas no domingo, 10/08.</span>
+          </div>
+          <div class="atlas-homeUpdateItem" style="flex-direction:column;align-items:flex-start;gap:2px">
+            <span class="atlas-homeUpdateText">Template S3 v1.4.0 disponível.</span>
+            <a class="atlas-templateLink" href="create.html" style="display:inline-flex;align-items:center;gap:4px;font-size:.78rem">Como usar {{i:seta:13}}</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Serviços no catálogo -->
+      <section class="atlas-sectionCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:grade}} Serviços no catálogo</h3>
+          <a class="atlas-btnPill" href="catalogo.html">Ver todos</a>
+        </div>
+        <div class="atlas-homeScrollableList">
+          <a class="atlas-serviceRow" href="catalogo.html"><span class="atlas-serviceStatusDot atlas-statusGreen"></span><span class="atlas-serviceInfo"><span class="atlas-serviceName">payments-api</span><span class="atlas-serviceMeta">pagamentos · service</span></span><span class="atlas-badgeTag atlas-badgeLime">production</span></a>
+          <a class="atlas-serviceRow" href="catalogo.html"><span class="atlas-serviceStatusDot atlas-statusGreen"></span><span class="atlas-serviceInfo"><span class="atlas-serviceName">checkout-web</span><span class="atlas-serviceMeta">pagamentos · website</span></span><span class="atlas-badgeTag atlas-badgeLime">production</span></a>
+          <a class="atlas-serviceRow" href="catalogo.html"><span class="atlas-serviceStatusDot atlas-statusAmber"></span><span class="atlas-serviceInfo"><span class="atlas-serviceName">fraud-score</span><span class="atlas-serviceMeta">antifraude · service</span></span><span class="atlas-badgeTag atlas-badgePurple">experimental</span></a>
+          <a class="atlas-serviceRow" href="catalogo.html"><span class="atlas-serviceStatusDot atlas-statusGreen"></span><span class="atlas-serviceInfo"><span class="atlas-serviceName">onboarding-web</span><span class="atlas-serviceMeta">onboarding · website</span></span><span class="atlas-badgeTag atlas-badgeLime">production</span></a>
+          <a class="atlas-serviceRow" href="catalogo.html"><span class="atlas-serviceStatusDot atlas-statusGreen"></span><span class="atlas-serviceInfo"><span class="atlas-serviceName">kyc-worker</span><span class="atlas-serviceMeta">onboarding · service</span></span><span class="atlas-badgeTag atlas-badgeLime">production</span></a>
+          <a class="atlas-serviceRow" href="catalogo.html"><span class="atlas-serviceStatusDot atlas-statusRed"></span><span class="atlas-serviceInfo"><span class="atlas-serviceName">ledger-legacy</span><span class="atlas-serviceMeta">pagamentos · service</span></span><span class="atlas-badgeTag atlas-badgeDanger">deprecated</span></a>
+        </div>
+      </section>
+
+      <!-- Links úteis -->
+      <section class="atlas-sectionCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:link}} Links úteis</h3>
+        </div>
+        <div class="atlas-usefulLinksList">
+          <a class="atlas-usefulLinkItem" href="docs.html">Guia de Onboarding {{i:seta:15}}</a>
+          <a class="atlas-usefulLinkItem" href="docs.html">Padrões de Arquitetura {{i:seta:15}}</a>
+          <a class="atlas-usefulLinkItem" href="docs.html">Runbooks de Incidente {{i:seta:15}}</a>
+          <a class="atlas-usefulLinkItem" href="create.html">Catálogo de Templates {{i:seta:15}}</a>
+          <a class="atlas-usefulLinkItem" href="docs.html">Política de Break Glass {{i:seta:15}}</a>
+        </div>
+      </section>
+    </div>
+
+    <div class="atlas-provisioningToolkitRow">
+      <!-- Comece por aqui -->
+      <section class="atlas-sectionCard">
+        <div class="atlas-sectionCardHeader">
+          <h3 class="atlas-sectionCardTitle">{{i:bandeira}} Comece por aqui</h3>
+        </div>
+        <div class="atlas-onboardingGrid">
+          <div class="atlas-onboardingStep">
+            <span class="atlas-onboardingStepNum">1</span>
+            <div>
+              <h4 class="atlas-onboardingStepTitle">Crie seu serviço</h4>
+              <p class="atlas-onboardingStepDesc">Use um template do scaffolder para provisionar um novo serviço com CI/CD e observabilidade prontos.</p>
+            </div>
+          </div>
+          <div class="atlas-onboardingStep">
+            <span class="atlas-onboardingStepNum">2</span>
+            <div>
+              <h4 class="atlas-onboardingStepTitle">Registre no catálogo</h4>
+              <p class="atlas-onboardingStepDesc">Adicione o catalog-info.yaml e conecte docs, APIs e dependências do seu componente.</p>
+            </div>
+          </div>
+          <div class="atlas-onboardingStep">
+            <span class="atlas-onboardingStepNum">3</span>
+            <div>
+              <h4 class="atlas-onboardingStepTitle">Ative a governança</h4>
+              <p class="atlas-onboardingStepDesc">Defina champions, monitore custos e acompanhe drifts detectados no seu escopo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ferramentas -->
+      <div class="atlas-toolkitColumn">
+        <section class="atlas-sectionCard">
+          <div class="atlas-sectionCardHeader">
+            <h3 class="atlas-sectionCardTitle">{{i:ferramenta}} Ferramentas</h3>
+          </div>
+          <div class="atlas-toolkitGrid">
+            <a class="atlas-toolkitItem" href="https://github.com" target="_blank" rel="noreferrer noopener">GitHub {{i:seta:13}}</a>
+            <a class="atlas-toolkitItem" href="https://console.aws.amazon.com" target="_blank" rel="noreferrer noopener">AWS {{i:seta:13}}</a>
+            <a class="atlas-toolkitItem" href="https://sonarcloud.io" target="_blank" rel="noreferrer noopener">SonarQube {{i:seta:13}}</a>
+            <a class="atlas-toolkitItem" href="https://backstage.io/docs" target="_blank" rel="noreferrer noopener">Docs do Backstage {{i:seta:13}}</a>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </div>
+</main>
