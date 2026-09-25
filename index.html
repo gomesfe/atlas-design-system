@@ -1015,6 +1015,9 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
 }
 .atlas-featureCardFooter {
   margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border-color);
+  /* Metadados soltos no rodapé (dono, tipo, contagens) em texto de apoio —
+     sem isto herdavam 1rem e competiam com o título do cartão. */
+  font-size: 0.8rem; color: var(--text-secondary);
 }
 
 /* Título de grupo numa lista de cartões (categorias do Create). */
@@ -1099,8 +1102,8 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
 }
 
 /* ===== Utilitários de página ===== */
-/* Miolo de uma tela solta: margem lateral e respiro no fim. O padding-top
-   fica com .atlas-topNav--fixed + * quando a nav é fixa. */
+/* Miolo de uma tela solta: margem lateral e respiro no fim. Com a nav fixa,
+   o padding-top reserva a altura dela mais o mesmo respiro (ver abaixo). */
 .atlas-pageMain { width: 100%; padding-left: 20px; padding-right: 20px; padding-bottom: 48px; }
 .atlas-pageMain:first-child,
 .atlas-topNav:not(.atlas-topNav--fixed) + .atlas-pageMain { padding-top: 20px; }
@@ -1111,6 +1114,13 @@ body.atlas-root, .atlas-root.atlas-page { min-height: 100vh; margin: 0; }
 .atlas-cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .atlas-cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 900px) { .atlas-cols2, .atlas-cols3 { grid-template-columns: 1fr; } }
+/* Com a nav fixa, o miolo ganha o mesmo respiro de 20px que tem com a nav no
+   fluxo — sem isso o primeiro cartão encostava na barra. */
+.atlas-topNav--fixed + .atlas-pageMain { padding-top: 98px; }
+@media (max-width: 900px) { .atlas-topNav--fixed + .atlas-pageMain { padding-top: 90px; } }
+@media (max-width: 760px) { .atlas-topNav--fixed + .atlas-pageMain { padding-top: 144px; } }
+/* Linha de serviço também como link (<a>), não só como botão. */
+a.atlas-serviceRow { text-decoration: none; color: inherit; }
   </style>
 
   <style>
