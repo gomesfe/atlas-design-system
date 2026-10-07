@@ -1873,7 +1873,17 @@ a.atlas-expandMetricCard:focus-visible, a.atlas-serviceRow:focus-visible { outli
 /* Rodapé de pop-up com ação secundária à esquerda e as principais à direita. */
 .atlas-modalFooterSplit { justify-content: space-between; flex-wrap: wrap; }
 .atlas-modalFooterSplit .atlas-footerGroup { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  </style>
+  /* ===== Barra de carregamento (v1.34) ===== */
+/* Enquanto a página carrega, o que vem logo depois do menu é a barra de
+   progresso — e ela herdava o espaço reservado para a página (o padding da
+   regra acima), virando um bloco verde da altura da nav. Ela fica uma linha
+   fina no topo da tela, por cima de tudo. */
+.atlas-topNav--fixed + [role="progressbar"],
+.atlas-sideNav--fixed ~ [role="progressbar"] {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1300;
+  height: 3px; padding: 0;
+}
+</style>
 
   <style>
     /* Estilos só da documentação (prefixo ds-). Nada aqui faz parte do DS. */
